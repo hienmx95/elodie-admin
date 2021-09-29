@@ -1,0 +1,17 @@
+{
+  "workflowSteps.detail.title": "",
+  "workflowSteps.code": "",
+  "workflowSteps.workflowDefinition": "",
+  "workflowSteps.name": "",
+  "workflowSteps.role": "",
+  "workflowSteps.subjectMailForReject": "",
+  "workflowSteps.bodyMailForReject": "",
+  "workflowSteps.status": "",
+  "workflowSteps.placeholder.role": "",
+  "workflowSteps.placeholder.code": "",
+  "workflowSteps.placeholder.name": "",
+  "workflowSteps.placeholder.status": "",
+  "workflowSteps.master.title": "",
+  "workflowSteps.table.title": "",
+  "workflowSteps.startDate": ""
+}

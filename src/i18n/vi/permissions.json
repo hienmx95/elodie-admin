@@ -1,0 +1,20 @@
+{
+  "permissions.placeholder.dateField": "Chọn ngày",
+  "permissions.placeholder.idField": "Nhập giá trị",
+  "permissions.code": "Mã quyền",
+  "permissions.name": "Tên quyền",
+  "permissions.menu": "Menu",
+  "permissions.status": "Trạng thái",
+  "permissions.detail.title": "Thông tin chi tiết",
+  "permissions.detail.create": "Tạo mới quyền",
+  "permissions.placeholder.code": "Nhập mã phân quyền",
+  "permissions.placeholder.name": "Nhập tên phân quyền",
+  "permissions.placeholder.menu": "Chọn menu",
+  "permissions.actions": "Tên thao tác",
+  "permissions.field": "Phân quyền theo dữ liệu",
+  "permissions.action": "Phân quyền theo thao tác",
+  "permissions.permissionContents.field": "Tên trường",
+  "permissions.permissionContents.permissionOperator": "Mã thao tác",
+  "permissions.permissionContents.value": "Giá trị",
+  "permisiions.placeholder.stringFiled": "Nhập giá trị"
+}

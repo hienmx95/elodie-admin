@@ -1,0 +1,76 @@
+// *** utils ***
+@import "../../../assets/scss/utils/variables";
+@import "../../../assets/scss/utils/mixins";
+
+* {
+  font-family: "Montserrat";
+}
+
+.product-grouping__master {
+  .product-grouping__page-title {
+    color: #333333;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .product-grouping__card {
+    .ant-card-body {
+      height: 75vh;
+    }
+  }
+}
+
+
+
+.tree__mapping-table {
+  padding-top: 0px;
+
+  .page__search {
+
+    .ant-card {
+      background-color: transparent;
+    }
+
+    .ant-card-body {
+
+      .ant-row {
+        background-color: #fff;
+        border-radius: 7px;
+        padding: 20px;
+      }
+    }
+
+
+  }
+
+}
+
+.tree__add-button {
+  color: #3f8cff;
+
+  span {
+    margin-left: 8px;
+  }
+
+  cursor: pointer;
+
+  .icon {
+    color: #3f8cff;
+  }
+}
+
+.table__total-result {
+  @include gradient-text();
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-weight: 500;
+  color: #979797;
+}
+
+.page-title {
+  font-weight: 700;
+  font-size: 30px;
+}

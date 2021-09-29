@@ -1,0 +1,31 @@
+import { StringFilter  } from '@react3l/advanced-filters';
+import { IdFilter  } from '@react3l/advanced-filters';
+import { NumberFilter  } from '@react3l/advanced-filters';
+import { DateFilter  } from '@react3l/advanced-filters';
+import { GuidFilter  } from '@react3l/advanced-filters';
+import { ModelFilter } from '@react3l/react3l/core';
+
+export class PurchaseRequestContentFilter extends ModelFilter  {
+  public id?: IdFilter = new IdFilter();
+  public purchaseRequestId?: IdFilter = new IdFilter();
+  public itemId?: IdFilter = new IdFilter();
+  public description?: StringFilter = new StringFilter();
+  public unitOfMeasureId?: IdFilter = new IdFilter();
+  public quantity?: NumberFilter = new NumberFilter();
+  public mainCurrencyId?: IdFilter = new IdFilter();
+  public unitPrice?: NumberFilter = new NumberFilter();
+  public taxTypeId?: IdFilter = new IdFilter();
+  public taxAmount?: NumberFilter = new NumberFilter();
+  public subTotal?: NumberFilter = new NumberFilter();
+  public total?: NumberFilter = new NumberFilter();
+  public note?: StringFilter = new StringFilter();
+  public exchangeCurrencyId?: IdFilter = new IdFilter();
+  public exchangeRate?: NumberFilter = new NumberFilter();
+  public exchangedAt?: DateFilter = new DateFilter();
+  public exchangedUnitPrice?: NumberFilter = new NumberFilter();
+  public exchangedSubTotal?: NumberFilter = new NumberFilter();
+  public exchangedTaxAmount?: NumberFilter = new NumberFilter();
+  public exchangedTotal?: NumberFilter = new NumberFilter();
+  public otherRequest?: StringFilter = new StringFilter();
+  public rowId?: GuidFilter = new GuidFilter();
+}

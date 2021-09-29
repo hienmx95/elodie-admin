@@ -1,0 +1,11 @@
+.page-supplier-quotation {
+    .quotation-body {
+        .form-item__content {
+            display: inherit !important;
+            width: 96%;
+        }
+    }
+    .select__loading {
+        display: none;
+    }
+}

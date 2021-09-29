@@ -1,0 +1,140 @@
+$color-plan: #3f8cff;
+
+.purchase-plan__container {
+    .page__detail-tabs {
+        .general-field__second-row {
+            .general-field__circle-image {
+                border-radius: 50%;
+                height: 32px;
+                width: 32px;
+                margin-right: 10px;
+            }
+
+            span {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 18px;
+                color: #333333;
+            }
+        }
+        .item-code__image {
+            img {
+                border-radius: 7px;
+                width: 100px;
+                height: 80px;
+            }
+        }
+        .table-cell__item {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .purchase-plan__category {
+            .category-title {
+                font-size: 12px;
+            }
+            .category-level {
+                font-size: 11px;
+                color: $color-plan;
+                i {
+                    font-size: 12px;
+                }
+            }
+        }
+        .supplier-mapping {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 16px;
+            border-bottom: 1px solid #eeeeee;
+
+            .supplier-mapping__name {
+                justify-content: space-between;
+                .supplier__name {
+                    font-weight: bold;
+                    font-size: 13px;
+                    line-height: 18px;
+                    color: #4f4f4f;
+                }
+                .supplier__tax-code {
+                    font-size: 11px;
+                    line-height: 18px;
+                    /* identical to box height, or 164% */
+                    text-decoration-line: underline;
+                    color: $color-plan;
+                }
+            }
+            .supplier-mapping__image {
+                width: 40px;
+                height: 40px;
+                border: 1px solid #fafafc;
+                border-radius: 50%;
+            }
+            .supplier-mapping__delete {
+                i {
+                    font-size: 16px;
+                    color: #e91616;
+                    cursor: pointer;
+                }
+            }
+        }
+        .supplier-quotation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .supplier-quotation__description {
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 18px;
+                color: #333333;
+            }
+        }
+        .row-supplier {
+            padding-right: 15px;
+            border-right: 1px solid #f2f4f6;
+            .row-supplier_container {
+                max-height: 300px;
+                overflow: auto;
+            }
+        }
+        .action__container {
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 18px;
+            color: #0b8ecc;
+            cursor: pointer;
+        }
+    }
+    .page__header {
+        padding: 0px 0px 0px 24px !important;
+        justify-content: space-between;
+        .page__title {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            text-transform: uppercase;
+            color: #333333;
+        }
+        .comparision-satus {
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 18px;
+            text-align: center;
+            color: #f48015;
+            padding: 9px 10px;
+            background: linear-gradient(0deg, rgba(244, 190, 94, 0.1), rgba(244, 190, 94, 0.1)), #ffffff;
+        }
+        .page__header-go-back {
+            .go-back {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 18px;
+                text-align: right;
+                text-decoration-line: underline;
+                color: #3f8cff;
+                cursor: pointer;
+            }
+        }
+    }
+}

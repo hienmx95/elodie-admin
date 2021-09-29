@@ -1,0 +1,9 @@
+{
+  "organizations.appUsers.username": "Tên đăng nhập",
+  "organizations.appUsers.displayName": "Tên hiển thị",
+  "organizations.appUsers.email": "Email",
+  "organizations.appUsers.phone": "Số điện thoại",
+  "organizations.placeholder.appUser": "Chọn trạng thái",
+  "organizations.appUser": "Nhân viên",
+  "organizations.errors.changeDisplay": "Không thể thực hiện thay đổi do đơn vị cha không được hiển thị"
+}

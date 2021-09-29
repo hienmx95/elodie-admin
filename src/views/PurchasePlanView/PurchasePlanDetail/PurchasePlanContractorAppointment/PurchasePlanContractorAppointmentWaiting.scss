@@ -1,0 +1,156 @@
+.purchase-plan__waiting {
+    .page__header {
+        .go-back__cancel {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 16px;
+            text-align: right;
+            text-decoration-line: underline;
+            color: #e91616;
+            cursor: pointer;
+        }
+    }
+    .page__detail-tabs {
+        .supplier-mapping__active {
+            background: #eff2fe;
+        }
+        .supplier-mapping__inactive {
+            background: white;
+        }
+        .supplier-mapping {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #eeeeee;
+
+            .supplier-mapping__name {
+                text-align: start;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        .btn-rework {
+            background: #ffb531;
+            border-radius: 7px;
+            padding: 10px 15px 10px 10px;
+            color: #ffffff;
+        }
+        .quotation {
+            max-height: 300px;
+            overflow: auto;
+            .quotation-content {
+                &:hover,
+                &:focus {
+                    background-color: #eff2fe;
+                }
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #eff2fe;
+                padding: 16px;
+                .quotation-content__left {
+                    display: flex;
+                    align-items: center;
+                    .quotation-content__left-icon {
+                        border: 1px solid #eff2fe;
+                        box-sizing: border-box;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        padding: 4px 10px;
+                    }
+                    .quotation-content__left-name {
+                        margin-left: 8px;
+                        .name {
+                            font-weight: bold;
+                            font-size: 13px;
+                            line-height: 18px;
+                            color: #252631;
+                        }
+                        .total {
+                            font-weight: 500;
+                            font-size: 13px;
+                            line-height: 18px;
+                            color: #778ca2;
+                        }
+                    }
+                }
+                .quotation-content__right {
+                    font-size: 12px;
+                    line-height: 24px;
+                    text-align: center;
+                    color: #3f8cff;
+                    padding: 0px 10px;
+                    background: #eff2fe;
+                    border: 2px solid #eff2fe;
+                    box-sizing: border-box;
+                    border-radius: 7px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .supplier-quotation {
+            .supplier-quotation__title {
+                font-weight: bold;
+                font-size: 13px;
+                line-height: 18px;
+                color: #252631;
+            }
+            .supplier-quotation__des {
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 18px;
+                text-align: center;
+                color: #252631;
+            }
+        }
+    }
+}
+.step-cancel {
+    width: 300px;
+}
+.modal-comparision {
+    width: 350px !important;
+    .ant-modal-content {
+        border-radius: 10px;
+    }
+    .modal-comparision__content {
+        flex-direction: column;
+        .modal-comparision__content-title {
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 18px;
+            color: #3f8cff;
+        }
+        .modal-comparision__content-des {
+            text-align: center;
+            font-size: 11px;
+            line-height: 18px;
+            text-align: center;
+            color: #0a1629;
+        }
+    }
+    .ant-modal-confirm-btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+        .ant-btn {
+            background: #ffffff;
+            border: 1px solid #3f8cff;
+            box-sizing: border-box;
+            border-radius: 7px;
+            span {
+                color: #3f8cff;
+            }
+        }
+        .ant-btn-primary {
+            border-radius: 7px;
+            background: #3f8cff;
+            span {
+                color: #ffffff;
+            }
+            margin-right: 16px;
+        }
+    }
+}

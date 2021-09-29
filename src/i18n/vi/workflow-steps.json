@@ -1,0 +1,20 @@
+{
+  "workflowSteps.detail.title": "Tạo mới",
+  "workflowSteps.code": "Mã bước",
+  "workflowSteps.workflowDefinition": "Workflow",
+  "workflowSteps.placeholder.workflowDefinition": " Chọn workflow",
+  "workflowSteps.name": "Tên bước",
+  "workflowSteps.role": "Vai trò",
+  "workflowSteps.subjectMailForReject": "Tiêu để email",
+  "workflowSteps.bodyMailForReject": "Nội dung email",
+  "workflowSteps.placeholder.subjectMailForReject": "Nhập tiêu để email",
+  "workflowSteps.placeholder.bodyMailForReject": "Nhập nội dung email",
+  "workflowSteps.status": "Trạng thái",
+  "workflowSteps.placeholder.role": "Chọn vai trò",
+  "workflowSteps.placeholder.code": "Nhập mã bước",
+  "workflowSteps.placeholder.name": "Nhập tên bước",
+  "workflowSteps.placeholder.status": "Chọn trạng thái",
+  "workflowSteps.master.title": "Danh sách bước",
+  "workflowSteps.table.title": "Danh sách bước",
+  "workflowSteps.startDate": "Ngày bắt đầu"
+}

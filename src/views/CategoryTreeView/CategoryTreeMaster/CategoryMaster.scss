@@ -1,0 +1,97 @@
+.big-create {
+    display: flex;
+    height: 64px;
+    margin-bottom: 30px;
+    border-radius: 7px;
+    background-color: #fafafc;
+    align-items: center;
+    color: #d8d8d8;
+    .big-create-icon {
+        width: 57px;
+        text-align: -webkit-center;
+        font-size: 24px;
+    }
+    .big-create-text {
+        font-size: 16px;
+    }
+}
+.big-create:hover {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+.modal-master-container {
+    font-family: "Montserrat", sans-serif;
+    .modal-master-title {
+        height: 98px;
+        color: #3f8cff;
+        font-size: 20px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+        .modal-master-bar {
+            background-color: #3f8cff;
+            width: 2px;
+            height: 52px;
+        }
+        .modal-master-text {
+            margin-left: 26px;
+        }
+    }
+
+    .modal-master-upload {
+        text-align: -webkit-center;
+        label.label-for-upload {
+            background: linear-gradient(0deg, rgba(94, 129, 244, 0.1), rgba(94, 129, 244, 0.1)), #ffffff;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            border-radius: 7px;
+            width: 104px;
+            height: 104px;
+            margin-bottom: 0px;
+        }
+    }
+    .modal-master-content {
+        margin-left: 28px;
+        margin-right: 28px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .modal-master-content-row {
+            display: flex;
+            .modal-master-content-col {
+                width: 320px;
+
+                .modal-master-content-row-1 {
+                    margin-bottom: 20px;
+                    .modal-master-content-row-label {
+                        height: 27px;
+                        color: #606060;
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    .modal-master-btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 28px;
+        height: 72px;
+        .btn-1 {
+            width: 77px;
+            height: 34px;
+            border-radius: 7px;
+            background-color: #3f8cff;
+            border: none;
+        }
+        .btn-2 {
+            width: 79px;
+            height: 34px;
+            border-radius: 7px;
+            background-color: #e91616;
+            border: none;
+        }
+    }
+}

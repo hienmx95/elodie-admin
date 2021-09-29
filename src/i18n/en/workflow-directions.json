@@ -1,0 +1,16 @@
+{
+  "workflowDirections.status": "",
+  "workflowDirections.fromStep": "",
+  "workflowDirections.toStep": "",
+  "workflowDirections.button.addCondition": "",
+  "workflowDirections.workflowDirectionConditions.value": "",
+  "workflowDirections.detail.title": "",
+  "workflowDirections.workflowDefinition": "",
+  "workflowDirections.placeholder.fromStep": "",
+  "workflowDirections.placeholder.toStep": "",
+  "workflowDirections.placeholder.status": "",
+  "workflowDirections.master.title": "",
+  "workflowDirections.table.title": "",
+  "workflowDirections.startDate": "",
+  "workflowDirections.bodyMailForCreator": ""
+}

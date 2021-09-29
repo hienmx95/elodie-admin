@@ -1,0 +1,84 @@
+@import "../../../assets/scss/utils/mixins";
+/* Style for Select.tsx */
+.select__container {
+  width: 100%;
+
+  position: relative;
+
+  .select__input {
+    width: 100%;
+  }
+
+  .select__list-container {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    background: #ffffff;
+    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+    border-radius: 7px;
+    margin-top: 5px;
+    position: absolute;
+    z-index: 999;
+    .select__list {
+      padding: 0px;
+      width: 100%;
+      overflow-y: auto;
+      max-height: 180px;
+      .select__item {
+        padding: 10px 12px 10px 15px;
+        &:hover {
+          background: #e8e8e8;
+        }
+      }
+    }
+    .select__loading {
+      width: 100%;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .select__item {
+      position: relative;
+      display: block;
+      background-color: #fff;
+      padding: 5px 10px;
+      font-size: 13px;
+      margin-top: 3px;
+      &:hover {
+        @include background-active-color;
+        .select__text {
+          @include gradient-text;
+        }
+      }
+      &.select__item--selected {
+        @include background-active-color;
+        .select__text {
+          @include gradient-text;
+        }
+      }
+    }
+  }
+  .select__footer {
+    padding: 0px 12px 10px 15px;
+    .action__container {
+      color: #3f8cff;
+      .button__add {
+        cursor: pointer;
+      }
+    }
+  }
+  .select__divider {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    border-top: 1px solid #eeeeee;
+  }
+}

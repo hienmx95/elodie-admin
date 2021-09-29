@@ -1,0 +1,15 @@
+.purchase-request-principal-contract__container {
+  .action__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .button__add {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+      color: #0b8ecc;
+      cursor: pointer;
+    }
+  }
+}

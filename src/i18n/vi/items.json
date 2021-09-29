@@ -1,0 +1,11 @@
+{
+  "items.status": "Trạng thái",
+  "items.name": "Tên sản phẩm",
+  "items.code": "Mã sản phẩm",
+  "items.scanCode": "Mã nhận diện",
+  "items.price": "Giá mua",
+  "items.retailPrice": "Giá bán lẻ đề xuất",
+  "items.images": "Hình ảnh",
+  "items.placeholder.code": "Nhập mã",
+  "items.placeholder.price": "Nhập giá mua"
+}

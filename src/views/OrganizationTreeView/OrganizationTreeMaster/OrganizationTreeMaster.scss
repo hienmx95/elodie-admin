@@ -1,0 +1,26 @@
+.organization__master {
+    .organization__page-title {
+        color: #333333;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .organization__card {
+        .ant-card-body {
+            height: 75vh;
+            overflow-y: scroll;
+        }
+    }
+
+
+}
+
+.organization-master__table {
+    padding: 4px 12px;
+
+    .master-table_title {
+        color: #3f8cff;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

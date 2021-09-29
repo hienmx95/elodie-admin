@@ -1,0 +1,29 @@
+.purchase-plan-container {
+  .page__title-plan-type {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #3f8cff !important;
+  }
+  .view-tab {
+    outline: none;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+    white-space: nowrap;
+    padding: 11px 29px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+
+    &.view-tab--active {
+      font-weight: bold;
+      color: #3f8cff;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px #eeeeee;
+      border-radius: 7px;
+    }
+  }
+}

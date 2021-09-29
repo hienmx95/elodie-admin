@@ -1,0 +1,19 @@
+{
+  "permissions.placeholder.startedAt": "",
+  "permissions.placeholder.idField": "",
+  "permissions.code": "",
+  "permissions.name": "",
+  "permissions.menu": "",
+  "permissions.status": "",
+  "permissions.detail.title": "",
+  "permissions.detail.create": "",
+  "permissions.placeholder.code": "",
+  "permissions.placeholder.name": "",
+  "permissions.placeholder.menu": "",
+  "permissions.action": "",
+  "permissions.field": "",
+  "permissions.actions": "",
+  "permissions.permissionContents.field": "",
+  "permissions.permissionContents.permissionOperator": "",
+  "permissions.permissionContents.value": ""
+}

@@ -1,0 +1,23 @@
+{
+  "productGroupings.detail.title": "",
+  "productGroupings.name": "",
+  "productGroupings.placeholder.name": "",
+  "productGroupings.code": "",
+  "productGroupings.placeholder.code": "",
+  "productGroupings.description": "",
+  "productGroupings.placeholder.description": "",
+  "productGroupings.parent": "",
+  "productGroupings.placeholder.parent": "",
+  "productGroupings.status": "",
+  "productGroupings.placeholder.otherName": "",
+  "productGroupings.products.otherName": "",
+  "productGroupings.products.name": "",
+  "productGroupings.products.productType": "",
+  "productGroupings.products.usedVariation": "",
+  "productGroupings.products.status": "",
+  "productGroupings.table.title": "",
+  "productGroupings.products.code": "",
+  "productGroupings.products.productGrouping": "",
+  "productGroupings.products.supplier": "",
+  "productGroupings.addProduct": ""
+}

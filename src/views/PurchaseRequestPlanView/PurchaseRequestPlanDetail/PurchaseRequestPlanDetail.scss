@@ -1,0 +1,11 @@
+.purchase-request-plan__container {
+    .content-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn-download {
+            text-decoration-line: underline;
+            color: #3f8cff;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.purchase-plan__tracking {
+  .pp-type {
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding: 5px 15px;
+    text-align: center;
+    width: fit-content;
+    float: right;
+
+    &.pp-type-1 {
+      color: #ffb531;
+      border: 1px solid #ffb531;
+    }
+
+    &.pp-type-2 {
+      color: #3f8cff;
+      border: 1px solid #3f8cff;
+    }
+
+    &.pp-type-3 {
+      color: #e91616;
+      border: 1px solid #e91616;
+    }
+
+    &.pp-type-4 {
+      color: #07bb4a;
+      border: 1px solid #07bb4a;
+    }
+  }
+  .ant-table-cell {
+    .result-cell__state {
+      float: right;
+    }
+  }
+
+  @mixin state {
+    font-weight: 500;
+    padding: 5px 20px;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+  }
+  .waiting-quotation-state {
+    @include state();
+    color: #f48015;
+    background: linear-gradient(0deg, rgba(249, 181, 158, 0.3), rgba(249, 181, 158, 0.3)), #ffffff;
+  }
+  .has-quotation-state {
+    @include state();
+    color: #00b9f2;
+    background: rgba(88, 202, 234, 0.1);
+  }
+  .chosen-supplier-state {
+    @include state();
+    color: #3f8cff;
+    background: #eff2fe;
+  }
+  .cancelled-state {
+    @include state();
+    color: #4b4bb7;
+    background: rgba(126, 114, 242, 0.21);
+  }
+}

@@ -1,0 +1,74 @@
+.unit-of-measure-grouping__container {
+  .ant-table-content {
+    overflow: unset !important;
+  }
+  .ant-table {
+    .table-cell__header {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 18px;
+      color: #3f8cff;
+    }
+
+    .result-cell {
+      font-style: normal;
+      line-height: 18px;
+      color: #1c1d21;
+      white-space: nowrap;
+      margin-top: 10px;
+
+      .cell-number {
+        font-weight: 600;
+        font-size: 13px;
+        span {
+          font-weight: 400;
+          font-size: 11px;
+        }
+      }
+    }
+
+    .table-cell__row {
+      display: flex;
+      justify-content: space-between;
+
+      .row__left {
+        width: 85px;
+      }
+
+      .row__right {
+        width: 75px;
+      }
+    }
+
+    .table-cell__item {
+      font-style: normal;
+      font-size: 11px;
+      line-height: 18px;
+
+      .item-code__text {
+        color: #1c1d21;
+        font-weight: bold;
+      }
+      .item-name__text {
+        font-weight: bold;
+        color: #3f8cff;
+        text-decoration: underline;
+      }
+      .item-description__text {
+        font-weight: normal;
+      }
+    }
+  }
+  .action__container {
+    width: 100%;
+    display: flex;
+    .button__add {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+      color: #0b8ecc;
+      cursor: pointer;
+    }
+  }
+}
