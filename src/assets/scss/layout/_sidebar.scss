@@ -983,7 +983,7 @@
                       line-height: 1.9;
                       color: #FFF;
                       letter-spacing: 1px;
-                      font-family: "Montserrat";
+                      font-family: 'Quicksand', sans-serif;
                       transition: all 0.3s ease;
                       font-style: normal;
                       font-weight: 600;
@@ -1196,8 +1196,9 @@
               .logo-wrapper__title {
                 margin-left: 10px;
                 font-size: 18px;
-                font-weight: 700;
+                font-weight: bold;
                 color: #fff;
+                font-family: 'Quicksand', sans-serif;
               }
             }
 
@@ -1424,7 +1425,7 @@
                       line-height: 27px;
                       color: #FFF;
                       letter-spacing: 1px;
-                      font-family: "Montserrat";
+                      font-family: "Quicksand",sans-serif;
                     }
 
                     &.link-nav {
@@ -1617,7 +1618,7 @@
                         position: relative;
                         letter-spacing: 0.06em;
                         font-weight: 500;
-                        font-family: "Montserrat";
+                        font-family: 'Quicksand', sans-serif;
                         transition: all 0.3s ease;
 
                         &:after {
@@ -1680,7 +1681,7 @@
                             display: block;
                             letter-spacing: 0.06em;
                             font-weight: 500;
-                            font-family: "Montserrat";
+                            font-family: 'Quicksand', sans-serif;
                             cursor: pointer;
 
                             &:after {
@@ -1707,7 +1708,7 @@
                                 display: block;
                                 letter-spacing: 0.06em;
                                 font-weight: 500;
-                                font-family: "Montserrat";
+                                font-family: 'Quicksand', sans-serif;
 
                                 &:after {
                                   display: none;

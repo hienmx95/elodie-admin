@@ -16,7 +16,7 @@ import WebFont from "webfontloader";
 
 WebFont.load({
   google: {
-    families: ["Montserrat", "sans-serif"],
+    families: ["Quicksand", "sans-serif"],
   },
 });
 
