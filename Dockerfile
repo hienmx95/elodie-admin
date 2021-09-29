@@ -16,11 +16,6 @@ FROM nginxinc/nginx-unprivileged
 EXPOSE 8080
 
 WORKDIR /var/www/html
-RUN apt-get update && apt-get install -y net-tools curl iputils-ping telnetd telnet nano vim dnsutils
-
-USER root
-RUN chmod -R g+w /var/cache/
-RUN chmod -R g+w /var/run/
 
 # Copy built artifacts
 COPY --from=node-dev /src/build/ ./
