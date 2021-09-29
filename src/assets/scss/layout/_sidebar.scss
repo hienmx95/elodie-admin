@@ -15,7 +15,7 @@
   content: "";
   top: 48%;
   width: 6px;
-  border-top: 2px solid #595c60;
+  border-top: 2px solid #FFF;
 }
 
 %horizontal-after {
@@ -769,7 +769,7 @@
           height: 54px;
           line-height: inherit;
           top: 81px;
-          background: $white;
+          background: #1e3c72;
           box-shadow: 0px 9px 24px rgba($semi-dark, 0.05);
           overflow-x: hidden;
           z-index: 1;
@@ -877,7 +877,7 @@
                     li {
                       a {
                         &.active {
-                          color: var(--theme-deafult);
+                          color: #FFF;
 
                           &:after {
                             background-color: var(--theme-deafult);
@@ -940,7 +940,7 @@
 
                     svg,
                     span {
-                      color: var(--theme-deafult);
+                      color: #FFF;
                       transition: all 0.3s ease;
                     }
                   }
@@ -981,7 +981,7 @@
                       display: block;
                       transition: all 0.5s ease;
                       line-height: 1.9;
-                      color: #35455c;
+                      color: #FFF;
                       letter-spacing: 1px;
                       font-family: "Montserrat";
                       transition: all 0.3s ease;
@@ -1132,20 +1132,20 @@
 
   .sidebar-main-title {
     > div {
-      background-color: $menu-background-color;
+      background-color: rgba(227,93,91,.42);
       padding: 15px 17px;
       border-radius: 10px;
     }
 
     h6 {
-      color: var(--theme-deafult);
+      color: #FFFFFF;
       margin-bottom: 5px;
       letter-spacing: 0.4px;
     }
 
     p {
-      color: $dark-color;
-      font-size: 11px;
+      color: #FFFFFF;
+      font-size: 9px;
       margin-bottom: 0;
       text-transform: capitalize;
       line-height: 1;
@@ -1183,7 +1183,7 @@
             z-index: 9;
             height: auto;
             line-height: inherit;
-            background: $white;
+            background: #1e3c72;
             width: 280px;
             text-align: left;
             transition: 0.3s;
@@ -1196,7 +1196,8 @@
               .logo-wrapper__title {
                 margin-left: 10px;
                 font-size: 18px;
-                font-weight: bold;
+                font-weight: 700;
+                color: #fff;
               }
             }
 
@@ -1398,10 +1399,10 @@
                     li {
                       a {
                         &.active {
-                          color: var(--theme-deafult);
-
+                          color: #FFF;
+                          font-weight: bold;
                           &:after {
-                            border-color: var(--theme-deafult);
+                            border-color: #FFF;
                           }
                         }
                         .according-menu {
@@ -1421,7 +1422,7 @@
                       font-weight: 600;
                       font-size: 14px;
                       line-height: 27px;
-                      color: #35455c;
+                      color: #FFF;
                       letter-spacing: 1px;
                       font-family: "Montserrat";
                     }
@@ -1500,7 +1501,7 @@
                         }
 
                         span {
-                          color: var(--theme-deafult);
+                          color: #FFF;
                           transition: all 0.3s ease;
                         }
 
@@ -1517,7 +1518,7 @@
                   a {
                     padding: 12px 15px;
                     position: relative;
-                    color: #222222;
+                    color: #FFF;
                     transition: all 0.3s ease;
 
                     svg {
@@ -1611,7 +1612,7 @@
                       a {
                         padding: 7px 25px;
                         font-size: 14px;
-                        color: #35455c;
+                        color: #CCC;
                         display: block;
                         position: relative;
                         letter-spacing: 0.06em;
@@ -1749,7 +1750,7 @@
                       // background-image: linear-gradient(90deg,
                       //     var(--theme-deafult) 0%,
                       //     #a26cf8 100%);
-                      background-color: $menu-background-color;
+                      background-color: #e35d5b;
                       transition: all 0.5s ease;
                       position: relative;
                       // box-shadow: 0px 0px 12px 0px rgba($primary-color, 0.35);
@@ -1757,7 +1758,7 @@
 
                       .according-menu {
                         i {
-                          color: var(--theme-deafult);
+                          color: #FFF;
                         }
                       }
 
@@ -1767,11 +1768,11 @@
                       }
 
                       i {
-                        color: var(--theme-deafult);
+                        color: #FFF;
                       }
 
                       span {
-                        color: var(--theme-deafult);
+                        color: #FFF;
                         transition: all 0.3s ease;
                       }
                     }
@@ -1796,7 +1797,7 @@
 
           i {
             vertical-align: middle;
-            color: rgba($black, 0.8);
+            color: #FFF;
             font-weight: 600;
           }
         }

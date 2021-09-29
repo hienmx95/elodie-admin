@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import configDB from "../../data/customizer/config";
 import { MenuItem, Menu } from "../../config/menu";
 import { MenuContext } from "app/app-context";
-import logo from "./../../assets/images/logo.png";
+import logo from "./../../assets/images/logo/elodiead.png";
 
 const Sidebar = (props) => {
   const menu = useContext<Menu[]>(MenuContext);
@@ -204,7 +204,7 @@ const Sidebar = (props) => {
           <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}>
             <img className="img-fluid for-dark" src={logo} alt="" />
             <img src={logo} className="img-fluid for-light" alt="IMG" />
-            <span className="logo-wrapper__title">ePurchase</span>
+            <span className="logo-wrapper__title">élodie.Admin</span>
           </Link>
           <div className="back-btn" onClick={() => responsiveSidebar()}>
             <i className="fa fa-angle-left"></i>
