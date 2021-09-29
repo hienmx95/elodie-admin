@@ -7,7 +7,6 @@ import InputNumber, {
 } from "components/Utility/Input/InputNumber/InputNumber";
 import { API_CATEGORY_PREFIX } from "config/api-consts";
 import { formatNumber } from "helpers/number";
-import { PurchaseRequestPlan } from "models/PurchaseRequestPlan";
 import React, { ReactElement, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import authenticationService from "services/authentication-service";
@@ -39,9 +38,9 @@ export interface TreeNodeProps<T extends Model> {
 
   editMode?: boolean;
 
-  model?: PurchaseRequestPlan;
+  model?: Model;
 
-  handleUpdateNewModel?: (data: PurchaseRequestPlan) => void;
+  handleUpdateNewModel?: (data: Model) => void;
 
   placeHolder?: string;
 

@@ -1,7 +1,6 @@
 import { Model } from "@react3l/react3l/core";
 import { TreeProps as AntTreeProps } from "antd/lib/tree";
 import classNames from "classnames";
-import { PurchaseRequestPlan } from "models/PurchaseRequestPlan";
 import React, { ReactElement } from "react";
 import TreeNode from "../TreeList/TreeNode/TreeNode";
 import "./TreeList.scss";
@@ -33,9 +32,9 @@ export interface TreeProps<T> extends AntTreeProps {
 
   editMode?: boolean;
 
-  model?: PurchaseRequestPlan;
+  model?: Model;
 
-  handleUpdateNewModel?: (data: PurchaseRequestPlan) => void;
+  handleUpdateNewModel?: (data: Model) => void;
 
   placeHolder?: string;
 }

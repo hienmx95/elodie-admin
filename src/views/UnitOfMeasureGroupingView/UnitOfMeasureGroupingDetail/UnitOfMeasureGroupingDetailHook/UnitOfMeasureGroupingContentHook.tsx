@@ -13,7 +13,6 @@ import {
 } from "models/UnitOfMeasureGroupingContent";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { purchaseRequestRepository } from "repositories/purchase-request-repository";
 import {
   AdvanceFilterAction,
   advanceFilterReducer,
@@ -283,7 +282,7 @@ export function useUnitOfMeasureGroupingContentTable(
                   modelFilter={unitOfMeasureFilter}
                   isMaterial={true}
                   placeHolder={"Đơn vị..."}
-                  getList={purchaseRequestRepository.singleListUnitOfMeasure}
+                  //getList={purchaseRequestRepository.singleListUnitOfMeasure}
                   onChange={handleChanngeUOM(params[1], params[2])}
                   model={params[1].unitOfMeasure}
                   disabled={params[2] === 0 ? true : false}

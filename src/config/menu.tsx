@@ -6,15 +6,9 @@ import {
   CRITERION_MASTER_ROUTE,
   CURRENCY_MASTER_ROUTE,
   ORGANIZATION_MASTER_ROUTE,
-  PRINCIPAL_CONTRACT_MASTER_ROUTE,
   PRODUCT_GROUPING_MASTER_ROUTE,
   PRODUCT_MASTER_ROUTE,
   PRODUCT_TYPE_MASTER_ROUTE,
-  PURCHASE_PLAN_MASTER_ROUTE,
-  PURCHASE_REQUEST_MASTER_ROUTE,
-  PURCHASE_REQUEST_PLAN_MASTER_ROUTE,
-  PURCHASE_REQUEST_PRINCIPAL_CONTRACT_MASTER_ROUTE,
-  //REQUEST_FOR_QUOTATION_MASTER_ROUTE,
   SUPPLIER_MASTER_ROUTE,
   TAX_TYPE_MASTER_ROUTE,
   TRADE_CONDITION_MASTER_ROUTE,
@@ -75,10 +69,8 @@ export const menu: Menu[] = [
       CURRENCY_MASTER_ROUTE,
       BRAND_MASTER_ROUTE,
       SUPPLIER_MASTER_ROUTE,
-      //SUPPLIER_EVALUATION_MASTER_ROUTE,
       CRITERION_MASTER_ROUTE,
       TRADE_CONDITION_MASTER_ROUTE,
-      //AUDIT_LOG_MASTER_ROUTE
 
     ),
     Items: [
@@ -177,20 +169,6 @@ export const menu: Menu[] = [
                 active: false,
                 isShow: true,
               },
-              // {
-              //   title: translate("menu.supplierEvaluationConfigs"),
-              //   path: SUPPLIER_EVALUATION_CONFIG_MASTER_ROUTE,
-              //   type: "link",
-              //   active: false,
-              //   isShow: true,
-              // },
-              // {
-              //   title: translate("menu.supplierEvaluation"),
-              //   path: SUPPLIER_EVALUATION_MASTER_ROUTE,
-              //   type: "link",
-              //   active: false,
-              //   isShow: true,
-              // },
               {
                 title: translate("menu.tradeConditions"),
                 path: TRADE_CONDITION_MASTER_ROUTE,
