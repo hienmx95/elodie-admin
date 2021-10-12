@@ -1,0 +1,29 @@
+import { StringFilter  } from '@react3l/advanced-filters';
+import { IdFilter  } from '@react3l/advanced-filters';
+import { DateFilter  } from '@react3l/advanced-filters';
+import { GuidFilter  } from '@react3l/advanced-filters';
+import { ModelFilter } from '@react3l/react3l/core';
+
+export class CustomerFilter extends ModelFilter  {
+  public id?: IdFilter = new IdFilter();
+  public code?: StringFilter = new StringFilter();
+  public codeDraft?: StringFilter = new StringFilter();
+  public name?: StringFilter = new StringFilter();
+  public phone?: StringFilter = new StringFilter();
+  public address?: StringFilter = new StringFilter();
+  public nationId?: IdFilter = new IdFilter();
+  public provinceId?: IdFilter = new IdFilter();
+  public districtId?: IdFilter = new IdFilter();
+  public wardId?: IdFilter = new IdFilter();
+  public birthday?: DateFilter = new DateFilter();
+  public email?: StringFilter = new StringFilter();
+  public professionId?: IdFilter = new IdFilter();
+  public customerSourceId?: IdFilter = new IdFilter();
+  public sexId?: IdFilter = new IdFilter();
+  public statusId?: IdFilter = new IdFilter();
+  public appUserId?: IdFilter = new IdFilter();
+  public creatorId?: IdFilter = new IdFilter();
+  public organizationId?: IdFilter = new IdFilter();
+  public rowId?: GuidFilter = new GuidFilter();
+  public codeGeneratorRuleId?: IdFilter = new IdFilter();
+}

@@ -1,0 +1,9 @@
+{
+  "customers.code": "Mã khách hàng",
+  "customers.name": "Tên khách hàng",
+  "customers.phone": "Số điện thoại",
+  "customers.email": "Email",
+  "customers.placeholder.name": "Nhập tên khách hàng",
+  "customers.placeholder.code": "Nhập mã khách hàng",
+  "customers.master.title" : "Danh sách khách hàng"
+}

@@ -21,6 +21,7 @@ import {
   PRODUCT_ROUTE,
   ROLE_ROUTE,
   ROLE_MASTER_ROUTE,
+  CUSTOMER_MASTER_ROUTE,
 } from "config/route-consts";
 import React, { ReactNode } from "react";
 export interface MenuItem {
@@ -189,6 +190,14 @@ export const menu: Menu[] = [
         ],
       },
       {
+        title: "Khách hàng",
+        path: CUSTOMER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+      {
         title: "Người dùng",
         type: "sub",
         icon: <i className="tio-user_outlined"></i>,
@@ -222,6 +231,7 @@ export const menu: Menu[] = [
           },
         ],
       },
+
     ],
   },
 ];

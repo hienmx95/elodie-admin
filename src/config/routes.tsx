@@ -35,6 +35,11 @@ import RoleView from "views/RoleView/RoleView";
 
 import OrganizationTreeView from "views/OrganizationTreeView/OrganizationTreeView";
 
+
+import { CUSTOMER_ROUTE } from 'config/route-consts';
+import CustomerView from 'views/CustomerView/CustomerView';
+
+
 export interface Route {
   path: string;
   component: () => JSX.Element;
@@ -102,5 +107,8 @@ export const routes: Route[] = [
     path: ORGANIZATION_ROUTE,
     component: OrganizationTreeView,
   },
-
+  {
+    path: CUSTOMER_ROUTE,
+    component: CustomerView,
+  },
 ];

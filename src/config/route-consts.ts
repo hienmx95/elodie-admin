@@ -405,3 +405,13 @@ export const ORGANIZATION_MASTER_ROUTE: string = join(
   ORGANIZATION_ROUTE,
   "organization-master"
 );
+
+export const CUSTOMER_ROUTE: string = ROOT_ROUTE ? ROOT_ROUTE + '/customer' : '/customer';
+export const CUSTOMER_MASTER_ROUTE: string = join(
+CUSTOMER_ROUTE,
+  "customer-master",
+);
+export const CUSTOMER_DETAIL_ROUTE: string = join(
+  CUSTOMER_ROUTE,
+  "customer-detail"
+);
