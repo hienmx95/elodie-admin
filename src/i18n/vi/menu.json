@@ -88,5 +88,6 @@
   "menu.workflowParameter": "Parameter",
   "menu.workflows": "Cấu hình workflow",
   "menu.roles": "Quản lý vai trò",
-  "menu.systemAdmins": "Quản trị hệ thống"
+  "menu.systemAdmins": "Quản trị hệ thống",
+  "menu.salesOrder": "Đơn hàng"
 }

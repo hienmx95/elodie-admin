@@ -7,5 +7,7 @@
   "items.retailPrice": "Giá bán lẻ đề xuất",
   "items.images": "Hình ảnh",
   "items.placeholder.code": "Nhập mã",
-  "items.placeholder.price": "Nhập giá mua"
+  "items.placeholder.price": "Nhập giá mua",
+  "items.detail.create": "Thêm sản phẩm",
+  "items.preview.product.add": "Thêm sản phẩm"
 }

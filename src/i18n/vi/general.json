@@ -47,5 +47,7 @@
   "general.actions.createTemplate": "Tạo từ mẫu",
   "general.actions.use": "Sử dụng",
   "general.actions.approve": "Phê duyệt",
-  "general.button.finish": "Hoàn thành"
+  "general.button.finish": "Hoàn thành",
+  "general.display": "Hiển thị đầy đủ thông tin",
+  "general.collapse": "Thu gọn"
 }

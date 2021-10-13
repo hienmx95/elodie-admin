@@ -1,6 +1,6 @@
 import { Model, ModelFilter } from "@react3l/react3l/core";
 import { Table, Tooltip } from "antd";
-import { TableRowSelection } from "antd/lib/table/interface";
+import { TableRowSelection, ColumnsType } from "antd/lib/table/interface";
 import { AxiosResponse } from "axios";
 import Pagination from "components/Utility/Pagination/Pagination";
 import React, { ReactNode } from "react";
@@ -19,7 +19,7 @@ export interface ContentTableProps<
   model: T; // for export
   filter: TContentFilter;
   list: TMapper[];
-  columns: TableColumn[];
+  columns: ColumnsType;
   total: number;
   loadingList: boolean;
   handleTableChange: (...[, , sorter]: any[]) => void;

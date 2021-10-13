@@ -415,3 +415,22 @@ export const CUSTOMER_DETAIL_ROUTE: string = join(
   CUSTOMER_ROUTE,
   "customer-detail"
 );
+//customerSalesOrder
+export const CUSTOMER_SALES_ORDER_ROUTE: string = ROOT_ROUTE
+  ? ROOT_ROUTE + "/customer-sales-order"
+  : "/customer-sales-order";
+
+export const CUSTOMER_SALES_ORDER_MASTER_ROUTE: string = join(
+  CUSTOMER_SALES_ORDER_ROUTE,
+  "customer-sales-order-master"
+);
+
+export const CUSTOMER_SALES_ORDER_DETAIL_ROUTE: string = join(
+  CUSTOMER_SALES_ORDER_ROUTE,
+  "customer-sales-order-detail"
+);
+
+export const CUSTOMER_SALES_ORDER_PREVIEW_ROUTE: string = join(
+  CUSTOMER_SALES_ORDER_ROUTE,
+  "customer-sales-order-preview"
+);

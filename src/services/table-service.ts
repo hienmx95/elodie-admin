@@ -624,6 +624,9 @@ export class TableService {
       handleChangeOneRow, // update single row
       handleChangeAllRow, // update multiple row
       handleAddContent, // add single
+      filterContentNotInList,
+      getIdsFromContent,
+      dispatch,
     };
   }
 

@@ -1,0 +1,33 @@
+.orderContent{
+        .ant-tabs-nav::before{
+          border-bottom: 0px !important;
+        }
+        .ant-tabs-nav-wrap {
+          .ant-tabs-tab {
+            padding: 36px 0 0 0 ;
+            &.ant-tabs-tab-active {
+              .ant-tabs-tab-btn {
+                text-transform: uppercase;
+                font-size: 14px;
+              }
+            }
+            .ant-tabs-tab-btn {
+              text-transform: uppercase;
+            }
+          }
+          .ant-tabs-ink-bar {
+            background: unset;
+          }
+        }
+}
+.action-product{
+    .button-action-table {
+        top: 15px !important
+    }
+}
+.orderQuote{
+  background: #FFF6F6 !important;
+}
+.storage{
+  background: rgba(53, 237, 105, 0.1) !important;
+}

@@ -1,0 +1,15 @@
+{
+  "customerSalesOrderPaymentHistorys.paymentMilestone": "Mốc thanh toán",
+  "customerSalesOrderPaymentHistorys.paymentPercentage": "Phần trăm thanh toán (%)",
+  "customerSalesOrderPaymentHistorys.paymentAmount": "Số tiền thanh toán (VNĐ)",
+  "customerSalesOrderPaymentHistorys.description": "Ghi chú",
+  "customerSalesOrderPaymentHistorys.paymentMethod": "Phương thức thanh toán",
+  "customerSalesOrderPaymentHistorys.paid": "Đã thanh toán",
+  "customerSalesOrderPaymentHistorys.unpaid": "Chưa thanh toán",
+  "customerSalesOrderPaymentHistorys.addPayment": "Thêm mốc thanh toán",
+  "customerSalesOrderPaymentHistorys.confirmPaymentTitle": "Xác nhận thông tin thanh toán",
+  "customerSalesOrderPaymentHistorys.confirmPaymentBody": "Bạn có chắc chắn khách hàng đã thanh toán tại mốc hợp đồng này",
+  "customerSalesOrderPaymentHistorys.confirmButton": "Xác nhận",
+  "customerSalesOrderPaymentHistorys.create.title": "Thêm tiến độ thanh toán",
+  "customerSalesOrderPaymentHistorys.edit.title": "Sửa tiến độ thanh toán"
+}

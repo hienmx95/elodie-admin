@@ -1,0 +1,43 @@
+import { StringFilter  } from '@react3l/advanced-filters';
+import { IdFilter  } from '@react3l/advanced-filters';
+import { NumberFilter  } from '@react3l/advanced-filters';
+import { DateFilter  } from '@react3l/advanced-filters';
+import { GuidFilter  } from '@react3l/advanced-filters';
+import { ModelFilter } from '@react3l/react3l/core';
+
+export class CustomerSalesOrderFilter extends ModelFilter  {
+  public id?: IdFilter = new IdFilter();
+  public code?: StringFilter = new StringFilter();
+  public customerId?: IdFilter = new IdFilter();
+  public orderSourceId?: IdFilter = new IdFilter();
+  public requestStateId?: IdFilter = new IdFilter();
+  public orderPaymentStatusId?: IdFilter = new IdFilter();
+  public editedPriceStatusId?: IdFilter = new IdFilter();
+  public shippingName?: StringFilter = new StringFilter();
+  public orderDate?: DateFilter = new DateFilter();
+  public deliveryDate?: DateFilter = new DateFilter();
+  public salesEmployeeId?: IdFilter = new IdFilter();
+  public note?: StringFilter = new StringFilter();
+  public invoiceAddress?: StringFilter = new StringFilter();
+  public invoiceNationId?: IdFilter = new IdFilter();
+  public invoiceProvinceId?: IdFilter = new IdFilter();
+  public invoiceDistrictId?: IdFilter = new IdFilter();
+  public invoiceWardId?: IdFilter = new IdFilter();
+  public invoiceZIPCode?: StringFilter = new StringFilter();
+  public deliveryAddress?: StringFilter = new StringFilter();
+  public deliveryNationId?: IdFilter = new IdFilter();
+  public deliveryProvinceId?: IdFilter = new IdFilter();
+  public deliveryDistrictId?: IdFilter = new IdFilter();
+  public deliveryWardId?: IdFilter = new IdFilter();
+  public deliveryZIPCode?: StringFilter = new StringFilter();
+  public subTotal?: NumberFilter = new NumberFilter();
+  public generalDiscountPercentage?: NumberFilter = new NumberFilter();
+  public generalDiscountAmount?: NumberFilter = new NumberFilter();
+  public totalTaxOther?: NumberFilter = new NumberFilter();
+  public totalTax?: NumberFilter = new NumberFilter();
+  public total?: NumberFilter = new NumberFilter();
+  public creatorId?: IdFilter = new IdFilter();
+  public organizationId?: IdFilter = new IdFilter();
+  public rowId?: GuidFilter = new GuidFilter();
+  public codeGeneratorRuleId?: IdFilter = new IdFilter();
+}
