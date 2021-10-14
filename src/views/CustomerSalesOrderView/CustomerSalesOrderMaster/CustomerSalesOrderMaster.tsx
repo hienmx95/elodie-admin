@@ -3,7 +3,7 @@ import {
   NumberFilter,
   StringFilter,
 } from "@react3l/advanced-filters";
-import { Col, Row, Switch, Tooltip } from "antd";
+import { Col, Row, Switch, Tooltip, Dropdown, Menu } from "antd";
 import { ColumnProps } from "antd/lib/table";
 import { AppMainMasterFilter } from "components/AppMain/MasterPage/AppMainMasterFilter";
 import { AppMainMasterTable } from "components/AppMain/MasterPage/AppMainMasterTable";
@@ -36,7 +36,7 @@ import { getAntOrderType } from "services/table-service";
 import nameof from "ts-nameof.macro";
 import Breadcrumb from "../../../layout/breadcrumb";
 import "./CustomerSalesOrderMaster.scss";
-
+import CustomerSalesOrderPreview from "./CustomerSalesOrderPreview";
 function CustomerSalesOrderMaster() {
   const [translate] = useTranslation();
 
@@ -52,6 +52,14 @@ function CustomerSalesOrderMaster() {
     customerSalesOrderRepository.bulkDelete
   );
 
+  const {
+    isOpenPreview,
+    isLoadingPreview,
+    previewModel,
+    handleOpenPreview,
+    handleClosePreview,
+  } = masterService.usePreview<Customer>(CustomerSalesOrder, customerSalesOrderRepository.get);
+
   const handleChangeDateFilter = React.useCallback(
     (fieldName) => {
       return (dateMoment: [Moment, Moment]) => {
@@ -65,33 +73,40 @@ function CustomerSalesOrderMaster() {
   );
   const menu = React.useCallback(
     (id: number, customerSalesOrder: CustomerSalesOrder) => (
-      <>
-        <Tooltip title={translate("general.actions.view")}>
-          <div className="ant-action-menu" onClick={master.handleGoPreview(id)}>
-            <i className="icon-Eye-16px"></i>
-          </div>
-        </Tooltip>
-        {!customerSalesOrder.used && (
-          <Tooltip title={translate("general.actions.edit")}>
-            <div
-              className="ant-action-menu"
-              onClick={master.handleGoDetail(id)}
-            >
-              <i className="icon-Edit-16px"></i>
+      <Menu>
+        <Menu.Item key="1">
+          <Tooltip title={translate("general.actions.view")}>
+            <div className="ant-action-menu" onClick={handleOpenPreview(id)}>
+              {translate("general.actions.view")}
             </div>
           </Tooltip>
+        </Menu.Item>
+        {!customerSalesOrder.used && (
+          <Menu.Item key="2">
+            <Tooltip title={translate("general.actions.edit")}>
+              <div
+                className="ant-action-menu"
+                onClick={master.handleGoDetail(id)}
+              >
+                {translate("general.actions.edit")}
+              </div>
+          </Tooltip>
+          </Menu.Item>
         )}
         {!customerSalesOrder.used && (
-          <Tooltip title={translate("general.actions.delete")}>
-            <div
-              className="ant-action-menu btn-danger"
-              onClick={() => master.handleServerDelete(customerSalesOrder)}
-            >
-              <i className="icon-Trash"></i>
-            </div>
-          </Tooltip>
+          <Menu.Item key="32">
+            <Tooltip title={translate("general.actions.delete")}>
+              <div
+                className="ant-action-menu"
+                onClick={() => master.handleServerDelete(customerSalesOrder)}
+              >
+                {translate("general.actions.delete")}
+              </div>
+            </Tooltip>
+          </Menu.Item>
+          
         )}
-      </>
+      </Menu>
     ),
     [master, translate]
   );
@@ -187,16 +202,27 @@ function CustomerSalesOrderMaster() {
         align: "center",
         render(id, customerSalesOrder: CustomerSalesOrder) {
           return (
-            <div className="action-table">
-              <Switch
-                checked={
-                  customerSalesOrder.editedPriceStatusId === 1 ? true : false
-                }
-                className="actionTable"
-              />
-              <div className="d-flex button-action-table">
-                {menu(id, customerSalesOrder)}
-              </div>
+            <></>
+          );
+        },
+      },
+      {
+        title: (
+          <div className="text-center gradient-text">
+            {translate("general.actions.label")}
+          </div>
+        ),
+        key: "action",
+        dataIndex: nameof(master.list[0].id),
+        fixed: "right",
+        width: 150,
+        align: "center",
+        render(id, customerSalesOrder: CustomerSalesOrder) {
+          return (
+            <div className="d-flex justify-content-center button-action-table">
+              <Dropdown overlay={menu(id, customerSalesOrder)} trigger={["click"]}>
+                <span className="action__dots">...</span>
+              </Dropdown>
             </div>
           );
         },
@@ -497,6 +523,15 @@ function CustomerSalesOrderMaster() {
           isDragable={true}
         ></AppMainMasterTable>
       </div>
+      <CustomerSalesOrderPreview
+        previewModel={previewModel}
+        isOpenPreview={isOpenPreview}
+        isLoadingPreview={isLoadingPreview}
+        handleClosePreview={handleClosePreview}
+        handleGoDetail={master.handleGoDetail}
+        translate={translate}
+        customerSalesOrderContent={previewModel?.customerSalesOrderContent}
+      />
     </>
   );
 }

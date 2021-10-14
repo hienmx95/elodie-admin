@@ -172,48 +172,6 @@ export function useCustomerSalesOrderContentTable(
     };
   }, []);
 
-  React.useEffect(() => {
-    let newSalePrice = 0;
-    if (changeEditPrice === true && customerSalesOrderContents?.length >= 0) {
-      customerSalesOrderContents.forEach(
-        (content: CustomerSalesOrderContent, index: number) => {
-          newSalePrice = content.item.salePrice * content.factor;
-          const amount = calculateTotal(
-            customerSalesOrderContents[index].quantity,
-            newSalePrice,
-            customerSalesOrderContents[index].discountPercentage,
-            //customerSalesOrderContents[index].generalDiscountPercentage,
-            // customerSalesOrderContents[index].taxPercentageOther,
-          );
-          const totalAmount = Number.parseFloat(
-            (
-              customerSalesOrderContents[index].quantity *
-              newSalePrice *
-              ((100 - customerSalesOrderContents[index].discountPercentage) / 100)
-            ).toFixed(3),
-          );
-          customerSalesOrderContents[index] = {
-            ...customerSalesOrderContents[index],
-            salePrice: newSalePrice,
-            amount,
-            totalAmount,
-          };
-        },
-      );
-      setCustomerSalesOrderContents([...customerSalesOrderContents]);
-      setChangeEditPrice(false);
-      if (setCalculateTotal) {
-        setCalculateTotal(true);
-      }
-    }
-  }, [
-    changeEditPrice,
-    customerSalesOrderContents,
-    setCalculateTotal,
-    setChangeEditPrice,
-    setCustomerSalesOrderContents,
-    calculateTotal,
-  ]);
   const handleChangeUOMInContent = React.useCallback(
     (...[, index]) => {
       return (id: number | string | null, t: UnitOfMeasure) => {
@@ -222,20 +180,11 @@ export function useCustomerSalesOrderContentTable(
             customerSalesOrderContents[index].quantity * t?.factor,
           );
           const newSalePrice =
-            customerSalesOrderContents[index]?.item?.salePrice * t?.factor;
+            customerSalesOrderContents[index]?.primaryPrice * requestedQuantitys;
           const total = calculateTotal(
             customerSalesOrderContents[index].quantity,
             newSalePrice,
             customerSalesOrderContents[index].discountPercentage,
-            //customerSalesOrderContents[index].generalDiscountPercentage,
-            // customerSalesOrderContents[index].taxPercentageOther,
-          );
-          const totalAmount = Number.parseFloat(
-            (
-              customerSalesOrderContents[index].quantity *
-              newSalePrice *
-              ((100 - customerSalesOrderContents[index].discountPercentage) / 100)
-            ).toFixed(3),
           );
           customerSalesOrderContents[index] = {
             ...customerSalesOrderContents[index],
@@ -243,7 +192,6 @@ export function useCustomerSalesOrderContentTable(
             unitOfMeasureId: +id,
             salePrice: newSalePrice,
             amount: total,
-            totalAmount: totalAmount,
             factor: t?.factor,
             requestedQuantity: requestedQuantitys,
           };
@@ -253,16 +201,7 @@ export function useCustomerSalesOrderContentTable(
           const total = calculateTotal(
             customerSalesOrderContents[index].quantity,
             newSalePrice,
-            customerSalesOrderContents[index].discountPercentage,
-            //customerSalesOrderContents[index].generalDiscountPercentage,
-            // customerSalesOrderContents[index].taxPercentageOther,
-          );
-          const totalAmount = Number.parseFloat(
-            (
-              customerSalesOrderContents[index].quantity *
-              newSalePrice *
-              ((100 - customerSalesOrderContents[index].discountPercentage) / 100)
-            ).toFixed(3),
+            customerSalesOrderContents[index].discountPercentage
           );
           const requestedQuantitys = Number(
             customerSalesOrderContents[index].quantity * t?.factor,
@@ -274,7 +213,6 @@ export function useCustomerSalesOrderContentTable(
             unitOfMeasureId: +id,
             salePrice: newSalePrice,
             amount: total,
-            totalAmount: totalAmount,
             factor: t?.factor,
             requestedQuantity: requestedQuantitys,
           };
@@ -304,14 +242,6 @@ export function useCustomerSalesOrderContentTable(
             Number(event),
             customerSalesOrderContents[index].salePrice,
             customerSalesOrderContents[index].discountPercentage,
-            //customerSalesOrderContents[index].generalDiscountPercentage,
-          );
-          let totalAmount = Number.parseFloat(
-            (
-              Number(event) *
-              customerSalesOrderContents[index].salePrice *
-              ((100 - customerSalesOrderContents[index].discountPercentage) / 100)
-            ).toFixed(3),
           );
           if (event === undefined || event === null) {
             requestedQuantity = 0;
@@ -327,7 +257,6 @@ export function useCustomerSalesOrderContentTable(
             quantity: Number(event),
             requestedQuantity,
             amount: total,
-            totalAmount: totalAmount,
           };
         }
         setCustomerSalesOrderContents([...customerSalesOrderContents]);
@@ -343,7 +272,7 @@ export function useCustomerSalesOrderContentTable(
       setCustomerSalesOrderContents,
     ],
   );
-  const handleChangeSalePrice = React.useCallback(
+  const handleChangePrimaryPrice = React.useCallback(
     (index, event) => {
       const primaryPrice = Number(event);
       customerSalesOrderContents[index].salePrice =
@@ -351,16 +280,10 @@ export function useCustomerSalesOrderContentTable(
       if (event !== customerSalesOrderContents[index].primaryPrice) {
         customerSalesOrderContents[index].editedPriceStatusId = 1;
       }
-      // setCustomerSalesOrderContents([
-      //   ...customerSalesOrderContents,
-      //   customerSalesOrderContents[index].editedPriceStatus,
-      // ]);
-      // setModel(customerSalesOrderContents);
       const total = calculateTotal(
         customerSalesOrderContents[index].quantity,
         customerSalesOrderContents[index].salePrice,
         customerSalesOrderContents[index].discountPercentage,
-        // customerSalesOrderContents[index].taxPercentageOther,
       );
       customerSalesOrderContents[index] = {
         ...customerSalesOrderContents[index],
@@ -386,21 +309,12 @@ export function useCustomerSalesOrderContentTable(
         const total = calculateTotal(
           customerSalesOrderContents[index].quantity,
           customerSalesOrderContents[index].salePrice,
-          customerSalesOrderContents[index].generalDiscountPercentage,
-          //Number(event),
-        );
-        const totalAmount = Number.parseFloat(
-          (
-            customerSalesOrderContents[index].quantity *
-            customerSalesOrderContents[index].salePrice *
-            ((100 - Number(event)) / 100)
-          ).toFixed(3),
+          Number(event),
         );
         customerSalesOrderContents[index] = {
           ...customerSalesOrderContents[index],
           discountPercentage: Number(event),
           amount: Number(total),
-          totalAmount: Number(totalAmount),
         };
         setCustomerSalesOrderContents([...customerSalesOrderContents]);
         if (setCalculateTotal) {
@@ -432,6 +346,39 @@ export function useCustomerSalesOrderContentTable(
     },
     [customerSalesOrderContents, setCustomerSalesOrderContents, setCalculateTotal],
   );
+
+  React.useEffect(() => {
+    let newSalePrice = 0;
+    if (changeEditPrice === true && customerSalesOrderContents.length > 0) {
+      customerSalesOrderContents.forEach(
+        (content: CustomerSalesOrderContent, index: number) => {
+          newSalePrice = content.item.salePrice * content.factor;
+          const amount = calculateTotal(
+            customerSalesOrderContents[index].quantity,
+            newSalePrice,
+            customerSalesOrderContents[index].discountPercentage,
+          );
+          customerSalesOrderContents[index] = {
+            ...customerSalesOrderContents[index],
+            salePrice: newSalePrice,
+            amount,
+          };
+        },
+      );
+      setCustomerSalesOrderContents([...customerSalesOrderContents]);
+      setChangeEditPrice(false);
+      if (setCalculateTotal) {
+        setCalculateTotal(true);
+      }
+    }
+  }, [
+    changeEditPrice,
+    customerSalesOrderContents,
+    setCalculateTotal,
+    setChangeEditPrice,
+    setCustomerSalesOrderContents,
+    calculateTotal,
+  ]);
 
   const customerSalesOrderContentColumns = React.useMemo(() => {
     return CreateTableColumns(
@@ -565,7 +512,7 @@ export function useCustomerSalesOrderContentTable(
               <InputNumber
                 isMaterial={true}
                 value={primaryPrice}
-                onChange={value => handleChangeSalePrice(index, value)}
+                onChange={value => handleChangePrimaryPrice(index, value)}
                 disabled={
                   model?.editedPriceStatusId === 1 && content?.unitOfMeasure?.id
                     ? false
@@ -658,6 +605,19 @@ export function useCustomerSalesOrderContentTable(
         CreateColumn()
         .Title(() => (
           <div className="table-cell__header">
+            {translate("customerSalesOrderContents.amount")}
+          </div>
+        ))
+        .Width(150)
+        .Key(nameof(customerSalesOrderContents[0].amount))
+        .DataIndex(nameof(customerSalesOrderContents[0].amount))
+        .Render((...[amount]) => {
+          return formatNumber(amount);
+        }),
+
+        CreateColumn()
+        .Title(() => (
+          <div className="table-cell__header">
             {translate("customerSalesOrderContents.isEditedPrice")}
           </div>
         ))
@@ -702,6 +662,7 @@ export function useCustomerSalesOrderContentTable(
             </div>
           );
         }),
+        
     );
   }, [
     customerSalesOrderContents,

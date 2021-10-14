@@ -190,22 +190,6 @@ export const menu: Menu[] = [
         ],
       },
       {
-        title: "Khách hàng",
-        path: CUSTOMER_MASTER_ROUTE,
-        icon: <i className="tio-user_outlined"></i>,
-        type: "link",
-        active: false,
-        isShow: true,
-      },
-      {
-        title: "Đơn hàng",
-        path: CUSTOMER_SALES_ORDER_MASTER_ROUTE,
-        icon: <i className="tio-user_outlined"></i>,
-        type: "link",
-        active: false,
-        isShow: true,
-      },
-      {
         title: "Người dùng",
         type: "sub",
         icon: <i className="tio-user_outlined"></i>,
@@ -240,6 +224,33 @@ export const menu: Menu[] = [
         ],
       },
 
+    ],
+  },
+  {
+    menutitle: "Bán hàng",
+    menucontent: "Khách hàng, đơn hàng",
+    isShow: true,
+    checkVisible: checkVisible(
+      CUSTOMER_MASTER_ROUTE,
+      CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+    ),
+    Items: [
+      {
+        title: "Khách hàng",
+        path: CUSTOMER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+      {
+        title: "Đơn hàng",
+        path: CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
     ],
   },
 ];

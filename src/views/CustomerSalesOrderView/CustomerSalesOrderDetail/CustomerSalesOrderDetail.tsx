@@ -173,19 +173,6 @@ function CustomerSalesOrderDetail() {
   return (
     <div className="page page__detail">
       <>
-        <Fragment>
-          <Breadcrumbs
-            parent={[
-              translate("menu.salesOrder"),
-              translate("customerSalesOrders.master.title"),
-            ]}
-            title={
-              model.id
-                ? translate("customerSalesOrders.edit.title")
-                : translate("customerSalesOrders.add.title")
-            }
-          />
-        </Fragment>
         <div className="page__detail-tabs">
           <>
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -431,23 +418,12 @@ function CustomerSalesOrderDetail() {
                     <Col lg={7} className="labelDetail">
                       <FormItem
                         label={translate("customerSalesOrders.phone")}
-                        validateStatus={formService.getValidationStatus<
-                          CustomerSalesOrder
-                        >(model.errors, nameof(model.phone))}
-                        message={model.errors?.phone}
                       >
                         <InputText
                           isMaterial={true}
-                          value={model.phone}
-                          placeHolder={translate("Shared.write", {
-                            value: translate(
-                              "customerSalesOrders.phone"
-                            ).toLowerCase(),
-                          })}
-                          disabled={customerId ? true : false}
-                          onChange={handleChangeSimpleField(
-                            nameof(model.phone)
-                          )}
+                          value={model?.customer?.phone}
+                          placeHolder={translate("customerSalesOrders.phone")}
+                          disabled
                         />
                       </FormItem>
                     </Col>

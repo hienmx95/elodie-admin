@@ -148,28 +148,14 @@ function CustomerSalesOrderPreview(props: CustomerSalesOrderPreviewProps<Custome
                     <span className="gradient-text">{previewModel?.code}</span>
                   </Descriptions.Item>
 
-                  <Descriptions.Item label={translate('customerSalesOrders.customerSalesOrderType')}>
-                    <span className="gradient-text">{previewModel?.customerSalesOrderTypeId &&
-                      previewModel?.customerSalesOrderType?.name}</span>
-                  </Descriptions.Item>
-
                   <Descriptions.Item label={translate('customerSalesOrders.customer')}>
-                    <span className="gradient-text">{previewModel?.customerId
-                      && previewModel?.customer?.name ? previewModel?.customer?.name : previewModel?.customer?.company?.name} </span>
+                    <span className="gradient-text">{previewModel?.customer?.name} </span>
                   </Descriptions.Item>
 
                   <Descriptions.Item label={translate('customerSalesOrders.phone')}>
-                    <span className="gradient-text">{previewModel?.phone}</span>
+                    <span className="gradient-text">{previewModel?.customer?.phone}</span>
                   </Descriptions.Item>
-
-                  <Descriptions.Item label={translate('customerSalesOrders.opportunity')}>
-                    <span className="gradient-text">{previewModel?.opportunityId && previewModel?.opportunity?.name}</span>
-                  </Descriptions.Item>
-
-                  <Descriptions.Item label={translate('customerSalesOrders.contract')}>
-                    <span className="gradient-text">{previewModel?.contractId && previewModel?.contract?.name}</span>
-                  </Descriptions.Item>
-
+                  
                   <Descriptions.Item label={translate('customerSalesOrders.shippingName')}>
                     <span className="gradient-text">{previewModel?.shippingName}</span>
                   </Descriptions.Item>
@@ -181,7 +167,6 @@ function CustomerSalesOrderPreview(props: CustomerSalesOrderPreviewProps<Custome
                         : ''}
                     </span>
                   </Descriptions.Item>
-
 
                   <Descriptions.Item label={translate('customerSalesOrders.orderDate')}>
                     <span className="gradient-text">

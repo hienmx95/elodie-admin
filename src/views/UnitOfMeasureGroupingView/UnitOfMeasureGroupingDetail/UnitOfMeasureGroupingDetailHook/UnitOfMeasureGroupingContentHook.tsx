@@ -30,6 +30,7 @@ import detailService from "services/pages/detail-service";
 import tableService from "services/table-service";
 import nameof from "ts-nameof.macro";
 import { v4 as uuidv4 } from "uuid";
+import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 /* end individual import */
 
 export function useUnitOfMeasureGroupingContentTable(
@@ -282,7 +283,7 @@ export function useUnitOfMeasureGroupingContentTable(
                   modelFilter={unitOfMeasureFilter}
                   isMaterial={true}
                   placeHolder={"Đơn vị..."}
-                  //getList={purchaseRequestRepository.singleListUnitOfMeasure}
+                  getList={customerSalesOrderRepository.singleListUnitOfMeasure}
                   onChange={handleChanngeUOM(params[1], params[2])}
                   model={params[1].unitOfMeasure}
                   disabled={params[2] === 0 ? true : false}

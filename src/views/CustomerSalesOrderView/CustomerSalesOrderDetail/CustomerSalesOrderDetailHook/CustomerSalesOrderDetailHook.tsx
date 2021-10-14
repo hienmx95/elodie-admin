@@ -199,7 +199,6 @@ export function useCustomerSalesOrderDetailHook(
     (id: number, item: Customer) => {
       model.customerId = id;
       model.customer = item;
-      model.phone = item?.phone;
       setModel(
         CustomerSalesOrder.clone<CustomerSalesOrder>({
           ...model,
