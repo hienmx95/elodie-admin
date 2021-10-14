@@ -43,6 +43,9 @@ import CustomerView from 'views/CustomerView/CustomerView';
 import { CUSTOMER_SALES_ORDER_ROUTE } from 'config/route-consts';
 import CustomerSalesOrderView from 'views/CustomerSalesOrderView/CustomerSalesOrderView';
 
+import { WAREHOUSE_ROUTE } from 'config/route-consts';
+import WarehouseView from 'views/WarehouseView/WarehouseView';
+
 
 export interface Route {
   path: string;
@@ -118,5 +121,9 @@ export const routes: Route[] = [
   {
     path: CUSTOMER_SALES_ORDER_ROUTE,
     component: CustomerSalesOrderView,
+  },
+  {
+    path: WAREHOUSE_ROUTE,
+    component: WarehouseView,
   },
 ];

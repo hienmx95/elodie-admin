@@ -22,7 +22,8 @@ import {
   ROLE_ROUTE,
   ROLE_MASTER_ROUTE,
   CUSTOMER_MASTER_ROUTE,
-  CUSTOMER_SALES_ORDER_MASTER_ROUTE
+  CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+  WAREHOUSE_MASTER_ROUTE
 } from "config/route-consts";
 import React, { ReactNode } from "react";
 export interface MenuItem {
@@ -228,11 +229,12 @@ export const menu: Menu[] = [
   },
   {
     menutitle: "Bán hàng",
-    menucontent: "Khách hàng, đơn hàng",
+    menucontent: "Khách hàng, đơn hàng, tồn kho",
     isShow: true,
     checkVisible: checkVisible(
       CUSTOMER_MASTER_ROUTE,
       CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+      WAREHOUSE_MASTER_ROUTE
     ),
     Items: [
       {
@@ -246,6 +248,14 @@ export const menu: Menu[] = [
       {
         title: "Đơn hàng",
         path: CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+      {
+        title: "Quản lý kho",
+        path: WAREHOUSE_MASTER_ROUTE,
         icon: <i className="tio-user_outlined"></i>,
         type: "link",
         active: false,

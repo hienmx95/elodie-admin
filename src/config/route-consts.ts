@@ -434,3 +434,13 @@ export const CUSTOMER_SALES_ORDER_PREVIEW_ROUTE: string = join(
   CUSTOMER_SALES_ORDER_ROUTE,
   "customer-sales-order-preview"
 );
+
+export const WAREHOUSE_ROUTE: string = ROOT_ROUTE ? ROOT_ROUTE + '/warehouse' : '/warehouse';
+export const WAREHOUSE_MASTER_ROUTE: string = join(
+WAREHOUSE_ROUTE,
+  "warehouse-master",
+);
+export const WAREHOUSE_DETAIL_ROUTE: string = join(
+WAREHOUSE_ROUTE,
+  "warehouse-detail",
+);

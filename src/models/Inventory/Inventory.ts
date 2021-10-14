@@ -15,10 +15,6 @@ export class Inventory extends Model
 
     public editorId?: number;
 
-
-
-
-
     public editor?: AppUser;
 
     public item?: Item;

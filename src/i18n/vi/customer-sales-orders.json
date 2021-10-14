@@ -3,7 +3,7 @@
   "customerSalesOrders.detail.title": "Thông tin đơn hàng",
   "customerSalesOrders.master.detail": "",
   "customerSalesOrders.code": "Mã đơn hàng",
-  "customerSalesOrders.placeholder.code": "Nhập mã đơn hàng",
+  "customerSalesOrders.placeholder.code": "Mã đơn hàng tự sinh",
   "customerSalesOrders.customerType": "Loại đơn hàng",
   "customerSalesOrders.placeholder.customerType": "Chọn loại đơn hàng",
   "customerSalesOrders.customer": "Khách hàng ",

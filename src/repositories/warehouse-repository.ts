@@ -14,6 +14,9 @@ import { Organization, OrganizationFilter } from 'models/Organization';
 import { Province, ProvinceFilter } from 'models/Province';
 import { Status, StatusFilter } from 'models/Status';
 import { Ward, WardFilter } from 'models/Ward';
+import { Inventory, InventoryFilter } from 'models/Inventory';
+import { UnitOfMeasure, UnitOfMeasureFilter } from 'models/UnitOfMeasure';
+import { Item, ItemFilter } from 'models/Item';
 
 export class WarehouseRepository extends Repository {
     constructor() {
@@ -76,6 +79,18 @@ export class WarehouseRepository extends Repository {
         return this.httpObservable.post<Ward[]>(kebabCase(nameof(this.singleListWard)), wardFilter)
             .pipe(map((response: AxiosResponse<Ward[]>) => response.data));
     };
+    public singleListInventory = (inventoryFilter: InventoryFilter): Observable<Inventory[]> => {
+        return this.httpObservable.post<Inventory[]>(kebabCase(nameof(this.singleListInventory)), inventoryFilter)
+            .pipe(map((response: AxiosResponse<Inventory[]>) => response.data));
+    };
+    public singleListUnitOfMeasure = (unitOfMeasureFilter: UnitOfMeasureFilter): Observable<UnitOfMeasure[]> => {
+        return this.httpObservable.post<UnitOfMeasure[]>(kebabCase(nameof(this.singleListUnitOfMeasure)), unitOfMeasureFilter)
+            .pipe(map((response: AxiosResponse<UnitOfMeasure[]>) => response.data));
+    };
+    public singleListItem = (itemFilter: ItemFilter): Observable<Item[]> => {
+        return this.httpObservable.post<Item[]>(kebabCase(nameof(this.singleListItem)), itemFilter)
+            .pipe(map((response: AxiosResponse<Item[]>) => response.data));
+    };
     
 
     public bulkDelete = (idList: number[] | string[]): Observable<void> => {
@@ -100,6 +115,17 @@ export class WarehouseRepository extends Repository {
         return this.httpObservable.post('export-template', {}, {
           responseType: 'arraybuffer',
         });
+    };
+
+    public listItem = (itemFilter: ItemFilter): Observable<Item[]> => {
+        return this.httpObservable
+          .post<Item[]>(kebabCase(nameof(this.listItem)), itemFilter)
+          .pipe(map((response: AxiosResponse<Item[]>) => response.data));
+    };
+    public countItem = (itemFilter: ItemFilter): Observable<number> => {
+        return this.httpObservable
+            .post<number>(kebabCase(nameof(this.countItem)), itemFilter)
+            .pipe(map((response: AxiosResponse<number>) => response.data));
     };
     
 }

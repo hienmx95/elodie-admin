@@ -192,12 +192,9 @@ function CustomerSalesOrderDetail() {
                           isMaterial={true}
                           //maxLength={255}
                           value={model.code}
-                          placeHolder={translate("Shared.write", {
-                            value: translate(
-                              "customerSalesOrders.code"
-                            ).toLowerCase(),
-                          })}
+                          placeHolder={translate("customerSalesOrders.placeholder.code")}
                           onChange={handleChangeSimpleField(nameof(model.code))}
+                          disabled
                         />
                       </FormItem>
                     </Col>
