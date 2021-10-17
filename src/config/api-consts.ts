@@ -106,3 +106,4 @@ export const API_PERMISSION_PREFIX: string = 'rpc/elodie/permisson';
 export const API_ROLE_PREFIX: string = 'rpc/elodie/role';
 export const API_CUSTOMER_PREFIX: string = 'rpc/elodie/customer';
 export const API_CUSTOMER_SALES_ORDER_PREFIX: string = 'rpc/elodie/customer-sales-order';
+export const API_DASHBOARD_ORDER_PREFIX: string = "rpc/elodie/dashboards/order";

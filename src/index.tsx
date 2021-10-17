@@ -68,7 +68,7 @@ const Root = () => {
                               render={() => {
                                 return (
                                   <Redirect
-                                    to={`${process.env.PUBLIC_URL}/dashboard/default`}
+                                    to={`${process.env.PUBLIC_URL}/dashboards/order`}
                                   />
                                 );
                               }}
@@ -96,7 +96,7 @@ const Root = () => {
                             <Redirect
                               exact
                               from="/"
-                              to={`${process.env.PUBLIC_URL}/dashboard/default`}
+                              to={`${process.env.PUBLIC_URL}/dashboards/order`}
                             />
                           </Switch>
                         </TransitionGroup>

@@ -444,3 +444,12 @@ export const WAREHOUSE_DETAIL_ROUTE: string = join(
 WAREHOUSE_ROUTE,
   "warehouse-detail",
 );
+
+export const ORDER_REPORT_ROUTE: string = ROOT_ROUTE
+  ? ROOT_ROUTE + "/dashboards"
+  : "/dashboards";
+export const INTERNAL_ORDER_REPORT_MASTER_ROUTE: string = join(
+  ORDER_REPORT_ROUTE,
+  "order"
+);
+

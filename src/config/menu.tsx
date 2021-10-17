@@ -23,7 +23,8 @@ import {
   ROLE_MASTER_ROUTE,
   CUSTOMER_MASTER_ROUTE,
   CUSTOMER_SALES_ORDER_MASTER_ROUTE,
-  WAREHOUSE_MASTER_ROUTE
+  WAREHOUSE_MASTER_ROUTE,
+  INTERNAL_ORDER_REPORT_MASTER_ROUTE
 } from "config/route-consts";
 import React, { ReactNode } from "react";
 export interface MenuItem {
@@ -50,6 +51,60 @@ export interface Menu {
 const translate = appTranslation.translate;
 
 export const menu: Menu[] = [
+  {
+    menutitle: "Dashboard",
+    menucontent: "Đơn hàng",
+    isShow: true,
+    checkVisible: checkVisible(
+      INTERNAL_ORDER_REPORT_MASTER_ROUTE
+    ),
+    Items: [
+      {
+        title: "Báo cáo đơn hàng",
+        path: INTERNAL_ORDER_REPORT_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+    ],
+  },
+  {
+    menutitle: "Bán hàng",
+    menucontent: "Khách hàng, đơn hàng, tồn kho",
+    isShow: true,
+    checkVisible: checkVisible(
+      CUSTOMER_MASTER_ROUTE,
+      CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+      WAREHOUSE_MASTER_ROUTE
+    ),
+    Items: [
+      {
+        title: "Khách hàng",
+        path: CUSTOMER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+      {
+        title: "Đơn hàng",
+        path: CUSTOMER_SALES_ORDER_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+      {
+        title: "Quản lý kho",
+        path: WAREHOUSE_MASTER_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
+    ],
+  },
   {
     menutitle: "Cài đặt và quản trị",
     menucontent: "Khởi tạo dữ liệu, thiết lập hệ thống",
@@ -225,42 +280,6 @@ export const menu: Menu[] = [
         ],
       },
 
-    ],
-  },
-  {
-    menutitle: "Bán hàng",
-    menucontent: "Khách hàng, đơn hàng, tồn kho",
-    isShow: true,
-    checkVisible: checkVisible(
-      CUSTOMER_MASTER_ROUTE,
-      CUSTOMER_SALES_ORDER_MASTER_ROUTE,
-      WAREHOUSE_MASTER_ROUTE
-    ),
-    Items: [
-      {
-        title: "Khách hàng",
-        path: CUSTOMER_MASTER_ROUTE,
-        icon: <i className="tio-user_outlined"></i>,
-        type: "link",
-        active: false,
-        isShow: true,
-      },
-      {
-        title: "Đơn hàng",
-        path: CUSTOMER_SALES_ORDER_MASTER_ROUTE,
-        icon: <i className="tio-user_outlined"></i>,
-        type: "link",
-        active: false,
-        isShow: true,
-      },
-      {
-        title: "Quản lý kho",
-        path: WAREHOUSE_MASTER_ROUTE,
-        icon: <i className="tio-user_outlined"></i>,
-        type: "link",
-        active: false,
-        isShow: true,
-      },
     ],
   },
 ];

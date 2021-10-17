@@ -40,4 +40,6 @@ export class CustomerSalesOrderFilter extends ModelFilter  {
   public organizationId?: IdFilter = new IdFilter();
   public rowId?: GuidFilter = new GuidFilter();
   public codeGeneratorRuleId?: IdFilter = new IdFilter();
+  public time?: IdFilter = new IdFilter();
+  public date?: DateFilter = new DateFilter();
 }

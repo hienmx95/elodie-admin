@@ -46,6 +46,9 @@ import CustomerSalesOrderView from 'views/CustomerSalesOrderView/CustomerSalesOr
 import { WAREHOUSE_ROUTE } from 'config/route-consts';
 import WarehouseView from 'views/WarehouseView/WarehouseView';
 
+import InternalOrderReportView from "views/InternalOrderReportView/InternalOrderReportView";
+import { INTERNAL_ORDER_REPORT_MASTER_ROUTE } from 'config/route-consts';
+
 
 export interface Route {
   path: string;
@@ -125,5 +128,9 @@ export const routes: Route[] = [
   {
     path: WAREHOUSE_ROUTE,
     component: WarehouseView,
+  },
+  {
+    path: INTERNAL_ORDER_REPORT_MASTER_ROUTE,
+    component: InternalOrderReportView,
   },
 ];

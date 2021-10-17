@@ -201,7 +201,7 @@ const Sidebar = (props) => {
     <Fragment>
       <div className="sidebar-wrapper">
         <div className="logo-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}>
+          <Link to={`${process.env.PUBLIC_URL}/dashboards/order`}>
             <img className="img-fluid for-dark" src={logo} alt="" />
             <img src={logo} className="img-fluid for-light" alt="IMG" />
             <span className="logo-wrapper__title">élodie.Admin</span>
@@ -217,7 +217,7 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div className="logo-icon-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/default`}>
+          <Link to={`${process.env.PUBLIC_URL}/dashboards/order`}>
             <img
               className="img-fluid"
               src={require("../../assets/images/logo/logo-icon.png")}
