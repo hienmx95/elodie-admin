@@ -11,4 +11,5 @@ export class ProvinceFilter extends ModelFilter  {
   public priority?: NumberFilter = new NumberFilter();
   public statusId?: IdFilter = new IdFilter();
   public rowId?: GuidFilter = new GuidFilter();
+  public nationId?: IdFilter = new IdFilter();
 }
