@@ -492,6 +492,7 @@ function CustomerSalesOrderDetail() {
                           CustomerSalesOrder
                         >(model.errors, nameof(model.orderSource))}
                         message={model.errors?.orderSource}
+                        isRequired={true}
                       >
                         <Select
                           isMaterial={true}
@@ -571,18 +572,19 @@ function CustomerSalesOrderDetail() {
                               {translate('general.actions.delete')}
                             </span>
                           </button>
-                          {/* <span>
+                          <span>
                             <FormItem
-                              label={translate("customerSalesOrders.note")}
                               validateStatus={formService.getValidationStatus<
                                 CustomerSalesOrder
                               >(
                                 model.errors,
-                                nameof(model.customerSalesOrderContents)
+                                nameof(model.id)
                               )}
-                              message={model.errors?.customerSalesOrderContents}
-                            />
-                          </span> */}
+                              message={model.errors?.id}
+                            >
+                              {null}
+                            </FormItem>
+                          </span>
                         </div>
                         <div>
                           <button
@@ -835,6 +837,7 @@ function CustomerSalesOrderDetail() {
                           CustomerSalesOrder
                         >(model.errors, nameof(model.deliveryAddress))}
                         message={model.errors?.deliveryAddress}
+                        isRequired={true}
                       >
                         <InputText
                           isMaterial={true}

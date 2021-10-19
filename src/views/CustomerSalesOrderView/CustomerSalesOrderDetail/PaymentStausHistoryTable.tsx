@@ -264,6 +264,19 @@ export function useCustomerSalesOrderPaymentHistoryTable(
       .Render((paymentType: PaymentType) => {
         return paymentType?.name;
       }),
+
+      CreateColumn()
+      .Title(() => (
+        <div className="table-cell__header">
+          {translate("customerSalesOrderPaymentHistorys.description")}
+        </div>  
+      ))
+      .Width(180)
+      .Key(nameof(customerSalesOrderPaymentHistories[0].description))
+      .DataIndex(nameof(customerSalesOrderPaymentHistories[0].description))
+      .Render((description: any) => {
+        return description;
+      }),
     );
   },[
     translate, customerSalesOrderPaymentHistories, pagination
