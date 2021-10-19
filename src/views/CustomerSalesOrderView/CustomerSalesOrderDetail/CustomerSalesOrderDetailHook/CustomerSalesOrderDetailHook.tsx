@@ -68,11 +68,11 @@ export function useCustomerSalesOrderDetailHook(
       }
       setModel({
         ...model,
-        customerSalesOrderStatus: {
+        requestState: {
           id: 1,
           name: "Mới tạo",
         },
-        customerSalesOrderStatusId: 1,
+        requestStateId: 1,
         orderPaymentStatus: { id: 1, name: "Chưa thanh toán" },
         orderPaymentStatusId: 1,
       });

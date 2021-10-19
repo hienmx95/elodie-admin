@@ -447,6 +447,7 @@ function CustomerSalesOrderDetail() {
                             nameof(model.requestState)
                           )}
                           model={model.requestState}
+                          disabled={model.id ? false : true}
                         />
                       </FormItem>
                     </Col>

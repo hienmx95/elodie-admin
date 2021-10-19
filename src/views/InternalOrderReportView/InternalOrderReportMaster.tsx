@@ -63,7 +63,7 @@ export default function InternalOrderReportMaster() {
   const ref = React.useRef<boolean>(true);
   React.useEffect(() => {
     if (ref.current) {
-      master.filter["time"]["equal"] = 2;
+      master.filter["time"]["equal"] = 3;
       ref.current = false;
     }
   }, [master.filter, ref]);
@@ -90,8 +90,8 @@ export default function InternalOrderReportMaster() {
 
   const timeValue = [
     { id: 1, name: "Hôm nay", checked: false },
-    { id: 2, name: "Tháng này", checked: true },
-    { id: 3, name: "Quý này", checked: false },
+    { id: 2, name: "Tuần này", checked: false },
+    { id: 3, name: "Tháng này", checked: true },
   ];
 
   const handleDispatchButtonTime = (state, action) => {
