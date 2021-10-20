@@ -306,9 +306,10 @@ export function useCustomerSalesOrderDetailHook(
       if (percent > 100) {
         percent = 100;
       }
-      let total = 0;
-      total += model.amount;
-      let discountAmount = Math.floor(model?.subTotal - total);
+
+      let discountAmount = Math.floor(
+        (percent / 100) * model?.subTotal,
+      );
 
       if (percent === 0) {
         discountAmount = 0;
@@ -321,24 +322,6 @@ export function useCustomerSalesOrderDetailHook(
             : model?.generalDiscountAmount,
         generalDiscountPercentage: percent,
       });
-      if (
-        model.customerSalesOrderContents &&
-        model.customerSalesOrderContents.length > 0
-      ) {
-        model.customerSalesOrderContents.forEach(
-          (customerSalesOrderContents: CustomerSalesOrderContent) => {
-            customerSalesOrderContents.generalDiscountPercentage = percent;
-            const total = calculateAmount(
-              customerSalesOrderContents.quantity,
-              customerSalesOrderContents.salePrice,
-              customerSalesOrderContents.discountPercentage,
-              percent
-            );
-            customerSalesOrderContents.amount = total;
-            // customerSalesOrderContents.amount = customerSalesOrderContents.amount*((100-percent)/100);
-          }
-        );
-      }
       setCalculateTotal(true);
     }),
     [model, setModel]
@@ -353,7 +336,6 @@ export function useCustomerSalesOrderDetailHook(
         ) {
           model.customerSalesOrderContents.forEach(
             (customerSalesOrderContent: CustomerSalesOrderContent) => {
-              // customerSalesOrderContent.errors = null;
               customerSalesOrderContent.primaryPrice =
                 customerSalesOrderContent.item?.salePrice;
               customerSalesOrderContent.editedPriceStatusId = 0;
