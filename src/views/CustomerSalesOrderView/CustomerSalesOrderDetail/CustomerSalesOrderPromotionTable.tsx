@@ -564,7 +564,8 @@ export function useCustomerSalesOrderPromotionTable(
     handleChangeAllRow,
     model.customerSalesOrderPromotions,
     "customerSalesOrderPromotion",
-    setCalculateTotal
+    setCalculateTotal,
+    model
   );
   const customerSalesOrderPromotionTable = React.useMemo(
     () => (

@@ -6,10 +6,16 @@ import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
 import { DistrictFilter } from "models/District";
 import { EditedPriceStatus } from "models/EditedPriceStatus";
 import { ProvinceFilter } from "models/Province";
+import { Item, ItemFilter } from "models/Item";
 import React from "react";
 import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import { enumService } from "services/enum-service";
 import { queryStringService } from "services/query-string-service";
+import {
+  ActionFilterEnum,
+  AdvanceFilterAction,
+  advanceFilterReducer
+} from "services/advance-filter-service";
 export function useCustomerSalesOrderDetailHook(
   model: CustomerSalesOrder,
   setModel: (data: CustomerSalesOrder) => void,
@@ -29,9 +35,11 @@ export function useCustomerSalesOrderDetailHook(
   const [deliveryDistrictFilter, setDeliveryDistrictFilter] = React.useState<
     DistrictFilter
   >(new DistrictFilter());
+
   const [customerFilter, setCustomerFilter] = React.useState<CustomerFilter>(
     new CustomerFilter()
   );
+
   const handleDelete = React.useCallback(
     (index: number) => {
       return () => {
@@ -176,6 +184,18 @@ export function useCustomerSalesOrderDetailHook(
       });
     };
   }, [model, setModel, deliveryDistrictFilter]);
+
+  const handleChangeEmployee = React.useCallback(() => {
+    return (salesEmployeeId, salesEmployee) => {
+      model.salesEmployee = salesEmployee;
+      model.salesEmployeeId = salesEmployeeId;
+      setModel(
+        CustomerSalesOrder.clone<CustomerSalesOrder>({
+          ...model,
+        })
+      );
+    };
+  }, [model, setModel]);
 
   const handleChangeOrderType = React.useCallback(() => {
     return (event, item) => {
@@ -400,6 +420,7 @@ export function useCustomerSalesOrderDetailHook(
     setIsSetCustomer,
     handleToggleOpenCustomer,
     handleChangeCustomer,
+    handleChangeEmployee,
     handleDelete,
     handleCopyInvoiceAddress,
     handleChangeInvoiceNation,
@@ -418,6 +439,6 @@ export function useCustomerSalesOrderDetailHook(
     setChangeEditPrice,
     handleChangeOrderType,
     customerFilter,
-    customerId,
+    customerId
   };
 }

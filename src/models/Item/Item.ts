@@ -22,11 +22,15 @@ export class Item extends Model {
 
   public salePrice?: number;
 
+  public saleStock?: number;
+
   public retailPrice?: number;
 
   public statusId?: number;
 
   public used?: boolean;
+
+  public hasInventory?: boolean;
 
   public rowId?: string;
 

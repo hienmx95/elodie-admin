@@ -44,6 +44,7 @@ export function useCustomerSalesOrderContentTable(
   setCalculateTotal?: Dispatch<SetStateAction<boolean>>,
   changeEditPrice?: boolean,
   setChangeEditPrice?: Dispatch<SetStateAction<boolean>>,
+  currentEmployee?: any,
 ) {
   const [translate] = useTranslation();
   const {
@@ -689,6 +690,7 @@ export function useCustomerSalesOrderContentTable(
     model.customerSalesOrderContents,
     'customerSalesOrderContent',
     setCalculateTotal,
+    model
   );
   const customerSalesOrderContentTable = React.useMemo(
     () => (

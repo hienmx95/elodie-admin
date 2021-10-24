@@ -258,7 +258,7 @@ function WarehouseDetail() {
                         />
                       </FormItem>
                     </Col>
-                    {/* <Col lg={6} className="gutter">
+                    <Col lg={6} className="gutter">
                       <FormItem
                         label={translate("warehouses.organization")}
                         validateStatus={formService.getValidationStatus<
@@ -284,7 +284,7 @@ function WarehouseDetail() {
                           item={model.organization}
                         />
                       </FormItem>
-                    </Col> */}
+                    </Col>
                     <Col lg={6} className="gutter">
                       <FormItem
                         label={translate("tradeConditions.status")}

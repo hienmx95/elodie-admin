@@ -8,6 +8,7 @@ export class ItemFilter extends ModelFilter {
   public id?: IdFilter = new IdFilter();
   public categoryId?: IdFilter = new IdFilter();
   public productId?: IdFilter = new IdFilter();
+  public salesEmployeeId?: IdFilter = new IdFilter();
   public code?: StringFilter = new StringFilter();
   public name?: StringFilter = new StringFilter();
   public otherName?: StringFilter = new StringFilter();

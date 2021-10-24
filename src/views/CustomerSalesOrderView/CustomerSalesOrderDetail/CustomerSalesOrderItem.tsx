@@ -24,7 +24,8 @@ import box from "./../../../assets/images/box-image.svg";
 import circle from "./../../../assets/images/green-circle.svg";
 import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import { Model } from "@react3l/react3l/core";
-
+import { Modal as ModalWarning } from "antd";
+import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 interface CustomerSalesOrderItemAction {
   type: string;
   itemList?: Item[];
@@ -130,6 +131,7 @@ export function useCustomerSalesOrderItem<T extends Model>(
   models: T[],
   fieldName?: string,
   setCalculateTotal?: Dispatch<SetStateAction<boolean>>,
+  CustomerSalesOrder?: CustomerSalesOrder,
 ): {
   openItemDialog: boolean;
   itemList: Item[];
@@ -164,6 +166,7 @@ export function useCustomerSalesOrderItem<T extends Model>(
       currentItemList: [],
     }
   );
+  const [translate] = useTranslation();
   const [openItemDialog, setOpenItemDialog] = React.useState<boolean>(false);
   const [subscription] = commonService.useSubscription();
   const [itemFilter, dispatchItemFilter] = React.useReducer<
@@ -228,21 +231,30 @@ export function useCustomerSalesOrderItem<T extends Model>(
   const handleOpenItem = React.useCallback(
     (event: any) => {
       const itemFilterValue = { ...itemFilter };
+      itemFilterValue.salesEmployeeId.equal = CustomerSalesOrder.salesEmployeeId;
       dispatchItemFilter({
         type: ActionFilterEnum.ChangeAllField,
         data: itemFilterValue,
       });
-      handleGetItemList(itemFilterValue);
-      setOpenItemDialog(true);
+      if (typeof CustomerSalesOrder.salesEmployeeId === 'undefined') {
+        ModalWarning.warning({
+          title: '',
+          content: translate('customerSalesOrders.errors.saleEmployee'),
+        });
+      }
+      else{
+        handleGetItemList(itemFilterValue);
+        setOpenItemDialog(true);
+      }
     },
-    [itemFilter, handleGetItemList]
+    [itemFilter, handleGetItemList, CustomerSalesOrder]
   );
 
   const handleCheckItem = React.useCallback(
     (item: Item) => (event: any) => {
       event.stopPropagation();
       event.preventDefault();
-      if (item) {
+      if (item.hasInventory) {
         const itemValue = { ...item };
         itemValue.isChecked = !itemValue.isChecked;
         const index = itemList.findIndex(
@@ -608,6 +620,7 @@ export function CustomerSalesOrderItemModal(props: CustomerSalesOrderItemModalPr
                         <Checkbox
                           checked={currentItem.isChecked}
                           onClick={handleCheckItem(currentItem)}
+                          disabled={!currentItem.hasInventory}
                         ></Checkbox>
                       </div>
                       <img
@@ -622,7 +635,7 @@ export function CustomerSalesOrderItemModal(props: CustomerSalesOrderItemModalPr
                       />
                       <div className="item__title">{currentItem.name}</div>
                       <div className="item__description">
-                        {currentItem.code}
+                        {currentItem.saleStock} sản phẩm
                       </div>
                     </div>
                   </Card>

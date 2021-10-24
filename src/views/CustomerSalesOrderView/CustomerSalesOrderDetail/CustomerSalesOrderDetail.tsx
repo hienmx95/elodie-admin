@@ -66,6 +66,7 @@ function CustomerSalesOrderDetail() {
     setIsSetCustomer,
     handleToggleOpenCustomer,
     handleChangeCustomer,
+    handleChangeEmployee,
     handleCopyInvoiceAddress,
     handleChangeInvoiceNation,
     handleChangeInvoiceProvince,
@@ -83,7 +84,7 @@ function CustomerSalesOrderDetail() {
     setChangeEditPrice,
     handleChangeOrderType,
     customerFilter,
-    customerId,
+    customerId
   } = useCustomerSalesOrderDetailHook(model, handleUpdateNewModel, isDetail);
 
   const { childrenAction } = useCustomerSalesOrderFooter(
@@ -383,6 +384,7 @@ function CustomerSalesOrderDetail() {
                           onChange={handleChangeObjectField(
                             nameof(model.salesEmployee)
                           )}
+                          // onChange={handleChangeEmployee()}
                           model={model.salesEmployee}
                           render={(user: AppUser) => user?.displayName}
                         />
@@ -542,7 +544,7 @@ function CustomerSalesOrderDetail() {
                         />
                       </FormItem>
                     </Col>
-                    <Col lg={7} className="labelDetail">
+                    {/* <Col lg={7} className="labelDetail">
                       <FormItem>
                         <SwitchStatus
                           checked={model.editedPriceStatusId === 1}
@@ -553,7 +555,7 @@ function CustomerSalesOrderDetail() {
                           {translate("customerSalesOrders.editedPriceStatus")}
                         </span>
                       </FormItem>
-                    </Col>
+                    </Col> */}
                   </Row>
                 </Card>
               </Col>

@@ -82,5 +82,6 @@
   "customerSalesOrders.edit.percentPayment": "Phần trăm thanh toán",
   "customerSalesOrders.edit.totalPayment": "Tổng tiền đã thanh toán",
   "customerSalesOrders.orderSource":"Nguồn đơn hàng",
-  "customerSalesOrders.placeholder.orderSource":"Chọn nguồn đơn hàng"
+  "customerSalesOrders.placeholder.orderSource":"Chọn nguồn đơn hàng",
+  "customerSalesOrders.errors.saleEmployee": "Bạn chưa chọn nhân viên phụ trách"
 }
