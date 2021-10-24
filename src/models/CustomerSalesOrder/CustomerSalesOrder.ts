@@ -16,6 +16,7 @@ import { CustomerSalesOrderContent } from 'models/CustomerSalesOrderContent';
 import { UnitOfMeasure } from 'models/UnitOfMeasure';
 import { TaxType } from 'models/TaxType';
 import { CustomerSalesOrderPaymentHistory } from 'models/CustomerSalesOrderPaymentHistory';
+import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
 import { PaymentType } from 'models/PaymentType';
 
 export class CustomerSalesOrder extends Model
@@ -127,6 +128,8 @@ export class CustomerSalesOrder extends Model
     public salesEmployee?: AppUser;
 
     public customerSalesOrderContents?: CustomerSalesOrderContent[];
+
+    public customerSalesOrderPromotions?: CustomerSalesOrderPromotion[];
 
     public customerSalesOrderPaymentHistories?: CustomerSalesOrderPaymentHistory[];
 }

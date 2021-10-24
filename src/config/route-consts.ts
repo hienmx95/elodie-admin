@@ -445,11 +445,20 @@ WAREHOUSE_ROUTE,
   "warehouse-detail",
 );
 
-export const ORDER_REPORT_ROUTE: string = ROOT_ROUTE
+export const ORDER_DASHBOARD_ROUTE: string = ROOT_ROUTE
   ? ROOT_ROUTE + "/dashboards"
   : "/dashboards";
+
 export const INTERNAL_ORDER_REPORT_MASTER_ROUTE: string = join(
-  ORDER_REPORT_ROUTE,
+  ORDER_DASHBOARD_ROUTE,
   "order"
 );
 
+export const CUSTOMER_SALES_ORDER_REPORT_ROUTE: string = ROOT_ROUTE
+  ? ROOT_ROUTE + "/customer-sales-order-report"
+  : "/customer-sales-order-report";
+
+  export const CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE: string = join(
+    CUSTOMER_SALES_ORDER_REPORT_ROUTE,
+    "/customer-sales-order-item-report-master"
+  );

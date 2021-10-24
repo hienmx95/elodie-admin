@@ -57,7 +57,7 @@ export const NOTIFICATION_LIMIT_WORD: number = 75;
  * Filter constants
  */
 export const DEFAULT_TAKE: number = 10;
-
+export const INFINITE_SCROLL_TAKE: number = 20;
 export const SPECIAL_CHARACTERS = /[ `!@#$%^&*()_+\-=[\]{};':"|,.<>/?~ẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴắằẳẵặăấầẩẫậâáàãảạđếềểễệêéèẻẽẹíìỉĩịốồổỗộôớờởỡợơóòõỏọứừửữựưúùủũụýỳỷỹỵ]/;
 
 /**

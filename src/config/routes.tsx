@@ -50,6 +50,12 @@ import InternalOrderReportView from "views/InternalOrderReportView/InternalOrder
 import { INTERNAL_ORDER_REPORT_MASTER_ROUTE } from 'config/route-consts';
 
 
+import CustomerSalesOrderItemReportView from "views/Report/CustomerSalesOrderReport/CustomerSalesOrderItemReportView/CustomerSalesOrderItemReport";
+import { CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE } from 'config/route-consts';
+
+import CustomerSalesOrderReportView from "views/Report/CustomerSalesOrderReport/CustomerSalesOrderReportView";
+import { CUSTOMER_SALES_ORDER_REPORT_ROUTE } from 'config/route-consts';
+
 export interface Route {
   path: string;
   component: () => JSX.Element;
@@ -132,5 +138,9 @@ export const routes: Route[] = [
   {
     path: INTERNAL_ORDER_REPORT_MASTER_ROUTE,
     component: InternalOrderReportView,
+  },
+  {
+    path: CUSTOMER_SALES_ORDER_REPORT_ROUTE,
+    component: CustomerSalesOrderReportView,
   },
 ];

@@ -8,6 +8,7 @@ import Pagination from "components/Utility/Pagination/Pagination";
 import { TFunction } from "i18next";
 import { Item, ItemFilter } from "models/Item";
 import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
+import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
 import { forkJoin } from "rxjs";
@@ -342,7 +343,40 @@ export function useCustomerSalesOrderItem<T extends Model>(
       );
       handleMappingItems(newCustomerSalesOrderContents);
     }
+    if (fieldName === 'customerSalesOrderPromotion') {
+      const currentCustomerSalesOrderPromotion = models
+        ? [...models]
+        : [];
 
+      const newCustomerSalesOrderPromotions = [...currentItemList].map(
+        (currentItem, index) => {
+          const filteredValue = currentCustomerSalesOrderPromotion.filter(
+            (currentContent) => {
+              return currentContent.itemId === currentItem.id;
+            }
+          )[0];
+
+          if (filteredValue) {
+            return { ...filteredValue, key: undefined };
+          } else {
+            const content = new CustomerSalesOrderPromotion();
+            content.item = { ...currentItem };
+            content.itemId = currentItem?.id;
+            content.primaryUnitOfMeasure = currentItem?.product?.unitOfMeasure;
+            content.primaryUnitOfMeasureId = currentItem?.product?.unitOfMeasureId;
+            content.quantity = 1;
+            content.requestedQuantity = 1;
+            content.salePrice = 1 * currentItem.salePrice ?? 0;
+            content.primaryPrice = currentItem?.salePrice;
+            content.factor = 1;
+            content.unitOfMeasure = currentItem?.product?.unitOfMeasure;
+            content.unitOfMeasureId = currentItem?.product?.unitOfMeasure?.id;
+            return content;
+          }
+        }
+      );
+      handleMappingItems(newCustomerSalesOrderPromotions);
+    }
     setOpenItemDialog(false);
     if (setCalculateTotal) {
       setCalculateTotal(true);

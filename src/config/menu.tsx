@@ -24,7 +24,8 @@ import {
   CUSTOMER_MASTER_ROUTE,
   CUSTOMER_SALES_ORDER_MASTER_ROUTE,
   WAREHOUSE_MASTER_ROUTE,
-  INTERNAL_ORDER_REPORT_MASTER_ROUTE
+  INTERNAL_ORDER_REPORT_MASTER_ROUTE,
+  CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE
 } from "config/route-consts";
 import React, { ReactNode } from "react";
 export interface MenuItem {
@@ -60,7 +61,7 @@ export const menu: Menu[] = [
     ),
     Items: [
       {
-        title: "Báo cáo đơn hàng",
+        title: "Đơn hàng",
         path: INTERNAL_ORDER_REPORT_MASTER_ROUTE,
         icon: <i className="tio-user_outlined"></i>,
         type: "link",
@@ -280,6 +281,24 @@ export const menu: Menu[] = [
         ],
       },
 
+    ],
+  },
+  {
+    menutitle: "Báo cáo",
+    menucontent: "Báo cáo đơn hàng",
+    isShow: true,
+    checkVisible: checkVisible(
+      CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE
+    ),
+    Items: [
+      {
+        title: "Đơn hàng theo sản phẩm",
+        path: CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE,
+        icon: <i className="tio-user_outlined"></i>,
+        type: "link",
+        active: false,
+        isShow: true,
+      },
     ],
   },
 ];

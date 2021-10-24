@@ -33,6 +33,7 @@ import { routerService } from "services/route-service";
 import nameof from "ts-nameof.macro";
 import AddCustomerModal from "./AddCustomerComponent/AddCustomerModal";
 import { useCustomerSalesOrderContentTable } from "./CustomerSalesOrderContentTable";
+import { useCustomerSalesOrderPromotionTable } from "./CustomerSalesOrderPromotionTable";
 import "./CustomerSalesOrderDetail.scss";
 import { useCustomerSalesOrderDetailHook } from "./CustomerSalesOrderDetailHook/CustomerSalesOrderDetailHook";
 import { useCustomerSalesOrderPaymentHistoryTable } from "./PaymentStausHistoryTable";
@@ -55,7 +56,6 @@ function CustomerSalesOrderDetail() {
     customerSalesOrderRepository.save,
     CUSTOMER_SALES_ORDER_MASTER_ROUTE
   );
-
   const {
     issetOpportunity,
     isOpenOpportunity,
@@ -159,6 +159,16 @@ function CustomerSalesOrderDetail() {
     setCalculateTotal,
     changeEditPrice,
     setChangeEditPrice
+  );
+  //Sản phẩm khuyến mại
+  const {
+    customerSalesOrderPromotionTable,
+    customerSalesOrderPromotionItem,
+    handleOpenPromotion,
+  } = useCustomerSalesOrderPromotionTable(
+    model,
+    handleUpdateNewModel,
+    setCalculateTotal
   );
   //Tiến độ thanh toán
   const {
@@ -599,6 +609,25 @@ function CustomerSalesOrderDetail() {
                         </div>
                       </div>
                     </TabPane>
+                    <TabPane
+                      key="customerSalesOrderPromotions"
+                      tab={translate(
+                        "customerSalesOrders.master.customerSalesOrderPromotions"
+                      )}
+                    >
+                      <div>{customerSalesOrderPromotionTable}</div>
+                      <div className="btnItem d-flex justify-content-end">
+                        <button
+                          className="btn btn-create"
+                          onClick={handleOpenPromotion}
+                        >
+                          <span>
+                            <i className="tio-add" />{" "}
+                            {translate("items.detail.create")}
+                          </span>
+                        </button>
+                      </div>
+                    </TabPane>
                   </Tabs>
                 </Card>
               </Col>
@@ -999,6 +1028,7 @@ function CustomerSalesOrderDetail() {
       </>
       <AppFooter childrenAction={childrenAction}></AppFooter>
       {customerSalesOrderItem}
+      {customerSalesOrderPromotionItem}
       {paymentStatusHistoryModal}
       <AddCustomerModal
         isOpenPreview={isOpenCustomer}

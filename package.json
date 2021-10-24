@@ -10,6 +10,7 @@
     "@types/react-redux": "^7.1.16",
     "@types/react-transition-group": "*",
     "antd": "^4.5.2",
+    "antd-table-infinity": "^1.1.6",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "bootstrap-scss": "^4.5.0",
