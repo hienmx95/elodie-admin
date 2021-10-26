@@ -1,5 +1,5 @@
 /* begin general import */
-import { Modal, PaginationProps, Popconfirm } from "antd";
+import { Modal, Popconfirm } from "antd";
 import ContentTable from "components/Utility/ContentTable/ContentTable";
 import FormItem from "components/Utility/FormItem/FormItem";
 import InputNumber from "components/Utility/Input/InputNumber/InputNumber";

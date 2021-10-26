@@ -114,7 +114,7 @@ function AppUserMaster() {
         )}
       </Menu>
     ),
-    [handleOpenPreview, handleOpenRoleView, translate, validAction]
+    [handleOpenPreview, handleOpenRoleView, master, translate, validAction]
   );
 
   const columns: ColumnProps<AppUser>[] = useMemo(

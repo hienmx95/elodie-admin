@@ -29,7 +29,7 @@ export default function InternalOrderReportMaster() {
 
   const [warehouse, setWarehouse] = React.useState<Warehouse>(new Warehouse());
 
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [, setLoading] = React.useState<boolean>(false);
 
   const master: UseMaster = masterService.useMaster<
     InternalOrder,

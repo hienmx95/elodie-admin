@@ -8,6 +8,7 @@ import Modal from "components/Utility/Modal/Modal";
 import Pagination from "components/Utility/Pagination/Pagination";
 import { TFunction } from "i18next";
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
+
 import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
 import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
 import { Item, ItemFilter } from "models/Item";
@@ -130,7 +131,7 @@ export function useCustomerSalesOrderItem<T extends Model>(
   models: T[],
   fieldName?: string,
   setCalculateTotal?: Dispatch<SetStateAction<boolean>>,
-  CustomerSalesOrder?: CustomerSalesOrder,
+  customerSalesOrder?: CustomerSalesOrder,
 ): {
   openItemDialog: boolean;
   itemList: Item[];
@@ -230,12 +231,12 @@ export function useCustomerSalesOrderItem<T extends Model>(
   const handleOpenItem = React.useCallback(
     (event: any) => {
       const itemFilterValue = { ...itemFilter };
-      itemFilterValue.salesEmployeeId.equal = CustomerSalesOrder.salesEmployeeId;
+      itemFilterValue.salesEmployeeId.equal = customerSalesOrder.salesEmployeeId;
       dispatchItemFilter({
         type: ActionFilterEnum.ChangeAllField,
         data: itemFilterValue,
       });
-      if (typeof CustomerSalesOrder.salesEmployeeId === 'undefined') {
+      if (typeof customerSalesOrder.salesEmployeeId === 'undefined') {
         ModalWarning.warning({
           title: '',
           content: translate('customerSalesOrders.errors.saleEmployee'),
@@ -246,7 +247,7 @@ export function useCustomerSalesOrderItem<T extends Model>(
         setOpenItemDialog(true);
       }
     },
-    [itemFilter, handleGetItemList, CustomerSalesOrder, translate]
+    [itemFilter, customerSalesOrder.salesEmployeeId, translate, handleGetItemList]
   );
 
   const handleCheckItem = React.useCallback(

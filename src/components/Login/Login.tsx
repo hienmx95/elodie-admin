@@ -27,7 +27,7 @@ function Login() {
     null
   );
   const [errorMessagePass, setErrorMessagePass] = useState<string>(null);
-  const [errorMessageOtp, setErrorMessageOtp] = useState<string>(null);
+  const [, setErrorMessageOtp] = useState<string>(null);
 
   const redirect = qs.parse(location.search, { ignoreQueryPrefix: true })
     .redirect;

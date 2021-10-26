@@ -216,5 +216,6 @@ export function useObjectModalHook(
     provinceFilter,
     districtFilter,
     customerGroupingFilter,
+    setCustomerGroupingFilter
   };
 }

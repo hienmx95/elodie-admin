@@ -9,7 +9,7 @@ import Select from "components/Utility/Select/Select";
 import UploadFile, {
   UPLOADTYPE,
 } from "components/Utility/UploadFile/UploadFile";
-import { APP_USER_MASTER_ROUTE, CUSTOMER_MASTER_ROUTE } from "config/route-consts";
+import { APP_USER_MASTER_ROUTE } from "config/route-consts";
 import { AppUser } from "models/AppUser";
 import { OrganizationFilter } from "models/Organization";
 import { SexFilter } from "models/Sex";

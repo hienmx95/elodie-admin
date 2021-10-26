@@ -11,6 +11,7 @@ import { AdvanceFilterAction, advanceFilterReducer, advanceFilterService } from 
 import appMessageService from "services/app-message-service";
 import { importExportDataService } from "services/import-export-data-service";
 import listService, { ActionOfList, StateOfList } from "services/list-service";
+import { UseMaster } from "services/pages/master-service";
 import tableService from "services/table-service";
 export const SET_LIST: string = "SET_LIST";
 export const INIT_FETCH: string = "INIT_FETCH";
@@ -65,6 +66,7 @@ export function useOrganizationTreeMasterHook(
     handleSeach?: () => void, //trigger updateList
     translate?: TFunction,
     validAction?: TFunction,
+    master?: UseMaster,
 ) {
     const [currentNode, setCurrentNode] = useState<Organization>(new Organization());
     const [
@@ -181,7 +183,12 @@ export function useOrganizationTreeMasterHook(
             notifyUpdateItemError,
         ],
     );
-
+  const handleDelete = React.useCallback(
+    (node: any) => () => {
+      master.handleServerDelete(node);
+    },
+    [master]
+  );
     const {
         handleListExport: handleExportAppUser,
     } = importExportDataService.useExport();
@@ -200,6 +207,7 @@ export function useOrganizationTreeMasterHook(
         handleChangeIsDisplay,
         handleChangeSearch,
         handleExportAppUser,
+        handleDelete
     };
 
 

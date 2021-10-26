@@ -32,9 +32,9 @@ export class OrganizationRepository extends Repository {
             .pipe(map((response: AxiosResponse<Organization[]>) => response.data));
     };
 
-    public get = (id: number | string, filterType: number,): Observable<Organization> => {
+    public get = (id: number | string): Observable<Organization> => {
         return this.httpObservable.post<Organization>
-            (kebabCase(nameof(this.get)), { id, filterType})
+            (kebabCase(nameof(this.get)), { id})
             .pipe(map((response: AxiosResponse<Organization>) => response.data));
     };
 
