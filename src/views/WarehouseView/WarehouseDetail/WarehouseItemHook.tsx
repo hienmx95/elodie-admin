@@ -1,15 +1,13 @@
 import { IdFilter } from "@react3l/advanced-filters";
-import { ModelFilter } from "@react3l/react3l/core";
 import { commonService } from "@react3l/react3l/services";
 import { Card, Checkbox, Col, Row, Spin } from "antd";
 import { CheckboxChangeEvent } from "antd/lib/checkbox";
-import AdvanceIdFilter from "components/Utility/AdvanceFilter/AdvanceIdFilter/AdvanceIdFilter";
 import AdvanceStringFilter from "components/Utility/AdvanceFilter/AdvanceStringFilter/AdvanceStringFilter";
 import Modal from "components/Utility/Modal/Modal";
 import Pagination from "components/Utility/Pagination/Pagination";
 import { TFunction } from "i18next";
-import { Item, ItemFilter } from "models/Item";
 import { Inventory } from "models/Inventory";
+import { Item, ItemFilter } from "models/Item";
 import React from "react";
 import { warehouseRepository } from "repositories/warehouse-repository";
 import { forkJoin } from "rxjs";
@@ -17,7 +15,7 @@ import { finalize } from "rxjs/operators";
 import {
   ActionFilterEnum,
   AdvanceFilterAction,
-  advanceFilterReducer,
+  advanceFilterReducer
 } from "services/advance-filter-service";
 import { commonWebService } from "services/common-web-service";
 import nameof from "ts-nameof.macro";
@@ -473,7 +471,6 @@ export function WarehouseItemModal(props: WarehouseItemModalProps) {
     handleCheckItem,
     handleCheckAllItem,
     handleChangeSearchItem,
-    handleChangeSelectItem,
   } = props;
 
   return (

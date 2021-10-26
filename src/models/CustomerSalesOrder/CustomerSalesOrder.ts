@@ -1,23 +1,20 @@
 import { Model } from '@react3l/react3l/core';
-import { Moment } from 'moment';
-import { CodeGeneratorRule } from 'models/CodeGeneratorRule';
 import { AppUser } from 'models/AppUser';
+import { CodeGeneratorRule } from 'models/CodeGeneratorRule';
 import { Customer } from 'models/Customer';
+import { CustomerSalesOrderContent } from 'models/CustomerSalesOrderContent';
+import { CustomerSalesOrderPaymentHistory } from 'models/CustomerSalesOrderPaymentHistory';
+import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
 import { District } from 'models/District';
-import { Nation } from 'models/Nation';
-import { Province } from 'models/Province';
-import { Ward } from 'models/Ward';
 import { EditedPriceStatus } from 'models/EditedPriceStatus';
+import { Nation } from 'models/Nation';
 import { OrderPaymentStatus } from 'models/OrderPaymentStatus';
 import { OrderSource } from 'models/OrderSource';
 import { Organization } from 'models/Organization';
+import { Province } from 'models/Province';
 import { RequestState } from 'models/RequestState';
-import { CustomerSalesOrderContent } from 'models/CustomerSalesOrderContent';
-import { UnitOfMeasure } from 'models/UnitOfMeasure';
-import { TaxType } from 'models/TaxType';
-import { CustomerSalesOrderPaymentHistory } from 'models/CustomerSalesOrderPaymentHistory';
-import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
-import { PaymentType } from 'models/PaymentType';
+import { Ward } from 'models/Ward';
+import { Moment } from 'moment';
 
 export class CustomerSalesOrder extends Model
 {

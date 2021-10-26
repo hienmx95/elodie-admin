@@ -1,41 +1,37 @@
 /* begin general import */
 import { Modal, PaginationProps, Popconfirm } from "antd";
-import { ColumnsType } from "antd/lib/table";
+import ContentTable from "components/Utility/ContentTable/ContentTable";
 import FormItem from "components/Utility/FormItem/FormItem";
 import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import Select from "components/Utility/Select/Select";
 import { formatNumber } from "helpers/number";
-import { renderMasterIndex } from "helpers/table";
-import { Item } from "models/Item";
 /* end general import */
 /* begin individual import */
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
 import { CustomerSalesOrderContentFilter } from "models/CustomerSalesOrderContent/CustomerSalesOrderContentFilter";
+import { Item } from "models/Item";
+import { Status } from 'models/Status';
 import { TaxType, TaxTypeFilter } from "models/TaxType";
 import { UnitOfMeasure, UnitOfMeasureFilter } from "models/UnitOfMeasure";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import {
   AdvanceFilterAction,
   advanceFilterReducer,
   advanceFilterService
 } from "services/advance-filter-service";
+import {
+  CreateColumn, CreateTableColumns
+} from "services/component-factory/table-column-service";
 import { formService } from "services/form-service";
 import { importExportDataService } from "services/import-export-data-service";
 import listService from "services/list-service";
 import detailService from "services/pages/detail-service";
 import tableService, { ContentTableActionEnum } from "services/table-service";
 import nameof from "ts-nameof.macro";
-import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
-import ContentTable from "components/Utility/ContentTable/ContentTable";
 import { CustomerSalesOrderItemModal, useCustomerSalesOrderItem } from "./CustomerSalesOrderItem";
-import {
-  CreateColumn,
-  CreateTableAction,
-  CreateTableColumns,
-} from "services/component-factory/table-column-service";
-import { Status } from 'models/Status';
 /* end individual import */
 
 export function useCustomerSalesOrderContentTable(
@@ -44,7 +40,7 @@ export function useCustomerSalesOrderContentTable(
   setCalculateTotal?: Dispatch<SetStateAction<boolean>>,
   changeEditPrice?: boolean,
   setChangeEditPrice?: Dispatch<SetStateAction<boolean>>,
-  currentEmployee?: any,
+  // currentEmployee?: any,
 ) {
   const [translate] = useTranslation();
   const {
@@ -121,10 +117,10 @@ export function useCustomerSalesOrderContentTable(
     handleContentExport,
     handleContentExportTemplate,
   } = importExportDataService.useExport();
-  const pagination: PaginationProps = tableService.usePagination<CustomerSalesOrderContentFilter>(
-    customerSalesOrderContentFilter,
-    total
-  );
+  // const pagination: PaginationProps = tableService.usePagination<CustomerSalesOrderContentFilter>(
+  //   customerSalesOrderContentFilter,
+  //   total
+  // );
   const handleBulkDelete = React.useCallback(
     () => {
       Modal.confirm({
@@ -669,6 +665,12 @@ export function useCustomerSalesOrderContentTable(
     customerSalesOrderContents,
     translate,
     model,
+    handleChangeDiscountPercentage,
+    handleChangePrimaryPrice,
+    handleChangeQuantity,
+    handleChangeTaxType,
+    handleChangeUOMInContent,
+    handleDelete,
   ]);
   const {
     openItemDialog,

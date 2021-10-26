@@ -1,9 +1,9 @@
 import FormItem from "antd/lib/form/FormItem";
 import Spin from "antd/lib/spin";
 import React, { useState } from "react";
-import { useLogin } from "./LoginHook";
-import "./Login.scss";
 import { useLocation } from "react-router";
+import "./Login.scss";
+import { useLogin } from "./LoginHook";
 // import ChangePassword from "./ChangePassword";
 // import ForgotPassword from "./ForgotPassword";
 // import GetOtp from "./GetOtp";
@@ -34,24 +34,24 @@ function Login() {
 
   const {
     loginVisible,
-    forgotPasswordVisible,
-    getOtpVisible,
-    changePassVisible,
+    // forgotPasswordVisible,
+    // getOtpVisible,
+    // changePassVisible,
     loading,
-    checkPass,
-    confirmPass,
+    // checkPass,
+    // confirmPass,
     showForgotPassword,
-    handleChangeEmail,
-    handleChangeOtp,
-    handleSendOtp,
-    handleSendMail,
-    handleChangeNewPass,
-    handleChangeConfirmPassword,
-    handleChangePass,
-    showLogin,
+    // handleChangeEmail,
+    // handleChangeOtp,
+    // handleSendOtp,
+    // handleSendMail,
+    // handleChangeNewPass,
+    // handleChangeConfirmPassword,
+    // handleChangePass,
+    // showLogin,
     handleLogin,
     handleEnter,
-    otp,
+    // otp,
   } = useLogin(
     appUser,
     setErrorMessageUsername,

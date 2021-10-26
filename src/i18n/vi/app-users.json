@@ -6,6 +6,9 @@
   "appUsers.organization": "Đơn vị quản lý",
   "appUsers.phone": "Số điện thoại",
   "appUsers.email": "Email",
+  "appUsers.dayofBirth": "Ngày sinh",
+  "appUsers.sex": "Giới tính",
+  "appUsers.address": "Địa chỉ",
   "appUsers.status": "Trạng thái",
   "appUsers.placeholder.username": "Nhập tên đăng nhập",
   "appUsers.placeholder.displayName": "Nhập tên hiển thị",
@@ -17,7 +20,7 @@
   "appUsers.table.title": "",
   "appUsers.roles.code": "Mã vai trò",
   "appUsers.roles.name": "Tên vai trò",
-  "appUsers.addRole": "Thêm vai trò",
+  "appUsers.addRole": "Thêm vai trò", 
   "appUsers.role": "Vai trò",
   "appUsers.placeholder.role": "Chọn vai trò",
   "appUsers.roles.add": "Thêm"

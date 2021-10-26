@@ -7,9 +7,9 @@ import AdvanceDateRangeFilter from 'components/Utility/AdvanceFilter/AdvanceDate
 import AdvanceIdFilter from 'components/Utility/AdvanceFilter/AdvanceIdFilter/AdvanceIdFilter';
 import AdvanceTreeFilter from 'components/Utility/AdvanceFilter/AdvanceTreeFilter/AdvanceTreeFilter';
 import { API_CUSTOMER_SALES_ORDER_ITEM_REPORT_PREFIX } from 'config/api-consts';
-import { AppUserFilter } from 'models/AppUser';
-import { ItemFilter } from 'models/Item';
 import { CustomerSalesOrderItemReport, CustomerSalesOrderItemReportFilter } from "models/CustomerSalesOrderItemReport";
+import { ItemFilter } from 'models/Item';
+import { OrganizationFilter } from 'models/Organization';
 import { Moment } from 'moment';
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -18,7 +18,6 @@ import authenticationService from 'services/authentication-service';
 import masterService from "services/pages/master-service";
 import nameof from "ts-nameof.macro";
 import { useMaster } from 'views/Report/ReportHook';
-import { OrganizationFilter } from 'models/Organization';
 // import '../../ReportView.scss';
 import { renderCell, useCustomerSalesOrderItemReport } from "./CustomerSalesOrderItemReportHook";
 

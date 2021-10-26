@@ -2,20 +2,14 @@ import { debounce } from "@react3l/react3l/helpers";
 import { Customer, CustomerFilter } from "models/Customer";
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
-
 import { DistrictFilter } from "models/District";
 import { EditedPriceStatus } from "models/EditedPriceStatus";
 import { ProvinceFilter } from "models/Province";
-import { Item, ItemFilter } from "models/Item";
 import React from "react";
 import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import { enumService } from "services/enum-service";
 import { queryStringService } from "services/query-string-service";
-import {
-  ActionFilterEnum,
-  AdvanceFilterAction,
-  advanceFilterReducer
-} from "services/advance-filter-service";
+
 export function useCustomerSalesOrderDetailHook(
   model: CustomerSalesOrder,
   setModel: (data: CustomerSalesOrder) => void,

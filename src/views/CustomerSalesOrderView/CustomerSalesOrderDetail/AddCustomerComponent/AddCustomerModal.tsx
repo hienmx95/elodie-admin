@@ -1,31 +1,20 @@
 /* begin general import */
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
 import { Model } from "@react3l/react3l/core/model";
 import { Col, Row } from "antd";
 import FormItem from "components/Utility/FormItem/FormItem";
-import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import InputText from "components/Utility/Input/InputText/InputText";
 import Modal from "components/Utility/Modal/Modal";
 import Select from "components/Utility/Select/Select";
-import TextArea from "components/Utility/TextArea/TextArea";
 import { TFunction } from "i18next";
 import { AppUser, AppUserFilter } from "models/AppUser";
 import { Customer } from "models/Customer";
-import { CustomerGroupingFilter } from "models/CustomerGrouping";
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
-import { CustomerSource, CustomerSourceFilter } from "models/CustomerSource";
-import { DistrictFilter } from "models/District";
-import { NationFilter } from "models/Nation";
-import { ProfessionFilter } from "models/Profession";
-import { ProvinceFilter } from "models/Province";
+import { CustomerSourceFilter } from "models/CustomerSource";
 import { SexFilter } from "models/Sex";
-import { StatusFilter } from "models/Status";
 import React, { Dispatch, SetStateAction } from "react";
-import { DropdownItem, DropdownMenu, DropdownToggle, InputGroup, InputGroupButtonDropdown } from "reactstrap";
 import { customerRepository } from "repositories/customer-repository";
 import { formService } from "services/form-service";
 import nameof from "ts-nameof.macro";
-import DatePicker from "../../../../components/Utility/Calendar/DatePicker/DatePicker";
 import { useObjectModalHook } from "./AddCustomerModalHook";
 /* end individual import */
 
@@ -51,23 +40,23 @@ function AddObjectCustomerModal(props: AddObjectModalProps<any>) {
   } = props;
   const {
     customer,
-    display,
-    displayBlock,
-    toggle,
+    // display,
+    // displayBlock,
+    // toggle,
     handleChangeObjectField,
     handleChangeSimpleField,
     onClickhandleSave,
     onclickCLoseModal,
-    onChangeCurrency,
-    toggleDropDown,
-    dropdownOpen,
-    dropdownOpen1,
-    toggleDropDown1,
-    handleChangeNation,
-    handleChangeProvince,
-    provinceFilter,
-    districtFilter,
-    customerGroupingFilter,
+    // onChangeCurrency,
+    // toggleDropDown,
+    // dropdownOpen,
+    // dropdownOpen1,
+    // toggleDropDown1,
+    // handleChangeNation,
+    // handleChangeProvince,
+    // provinceFilter,
+    // districtFilter,
+    // customerGroupingFilter,
   } = useObjectModalHook(modelLocal, setModelLocal, handleClosePreview, isSet, setIsSet);
 
   return (

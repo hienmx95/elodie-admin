@@ -4,8 +4,6 @@ import { Customer } from "models/Customer";
 import { DistrictFilter } from "models/District";
 import { ProvinceFilter } from "models/Province";
 import React, { Dispatch, SetStateAction } from "react";
-import { customerRepository } from "repositories/customer-repository";
-import { enumService } from "services/enum-service";
 import { queryStringService } from "services/query-string-service";
 export function useCustomerDetailHook(
   model?: Customer,

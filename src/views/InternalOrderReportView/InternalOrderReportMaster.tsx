@@ -1,32 +1,25 @@
-import { Col, Row, Spin, Tooltip } from "antd";
-import Select from "components/Utility/Select/Select";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import "./WorkOrderReportView.scss";
-import { OrganizationFilter } from "models/Organization";
-import masterService, { UseMaster } from "services/pages/master-service";
-import { INTERNAL_ORDER_REPORT_MASTER_ROUTE, CUSTOMER_SALES_ORDER_ROUTE } from "config/route-consts";
-import { internalOrderReportRepository } from "repositories/internal-order-report-repository";
-import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
-import AdvanceDateRangeFilter from "components/Utility/AdvanceFilter/AdvanceDateRangeFilter/AdvanceDateRangeFilter";
-import { Moment } from "moment";
-import nameof from "ts-nameof.macro";
-import Table, { ColumnProps } from "antd/lib/table";
-import { getAntOrderType } from "services/table-service";
+import { Col, Row, Spin } from "antd";
 import classNames from "classnames";
+import AdvanceDateRangeFilter from "components/Utility/AdvanceFilter/AdvanceDateRangeFilter/AdvanceDateRangeFilter";
+import AdvanceTreeFilter from "components/Utility/AdvanceFilter/AdvanceTreeFilter/AdvanceTreeFilter";
 import MultipleSelect from "components/Utility/Select/MultipleSelect/MultipleSelect";
-import { Item, ItemFilter } from "models/Item";
-import { useGetData } from "./InternalOrderReportHook";
-import { InternalOrder, InternalOrderFilter } from "models/InternalOrder";
-import { Warehouse, WarehouseFilter } from "models/Warehouse";
+import Select from "components/Utility/Select/Select";
+import { INTERNAL_ORDER_REPORT_MASTER_ROUTE } from "config/route-consts";
 // import authenticationService from "services/authentication-service";
 // import { INTERNAL_ORDER_REPORT_PREFIX } from "config/api-consts";
 import { formatNumber } from "helpers/number";
-import AdvanceTreeFilter from "components/Utility/AdvanceFilter/AdvanceTreeFilter/AdvanceTreeFilter";
-import {
-  CustomerSalesOrder,
-  CustomerSalesOrderFilter,
-} from "models/CustomerSalesOrder";
+import { InternalOrder, InternalOrderFilter } from "models/InternalOrder";
+import { Item, ItemFilter } from "models/Item";
+import { OrganizationFilter } from "models/Organization";
+import { Warehouse, WarehouseFilter } from "models/Warehouse";
+import { Moment } from "moment";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { internalOrderReportRepository } from "repositories/internal-order-report-repository";
+import masterService, { UseMaster } from "services/pages/master-service";
+import nameof from "ts-nameof.macro";
+import { useGetData } from "./InternalOrderReportHook";
+import "./WorkOrderReportView.scss";
 export default function InternalOrderReportMaster() {
   const [translate] = useTranslation();
   // const { validAction } = authenticationService.useAction(
@@ -205,116 +198,116 @@ export default function InternalOrderReportMaster() {
     setLoading
   );
 
-  const columns: ColumnProps<InternalOrder>[] = React.useMemo(
-    () => [
-      {
-        title: (
-          <div className="text-left gradient-text">
-            {translate("internalOrderReports.code")}
-          </div>
-        ),
-        align: "left",
-        sorter: true,
-        key: nameof(master.list[0].itemCode),
-        dataIndex: nameof(master.list[0].itemCode),
-        sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
-          master.filter,
-          nameof(master.list[0].itemCode)
-        ),
-        render(itemCode: string) {
-          return (
-            <div className="ant-cell-master__container">
-              <Tooltip title={itemCode}>
-                <div
-                  className={classNames("cell-master__first-row", {
-                    "first-row--ellipsis": itemCode && itemCode.length >= 30,
-                  })}
-                >
-                  <span>{itemCode}</span>
-                </div>
-              </Tooltip>
-            </div>
-          );
-        },
-      },
-      {
-        title: (
-          <div className="text-left gradient-text">
-            {translate("internalOrderReports.nameItem")}
-          </div>
-        ),
-        sorter: true,
-        key: nameof(master.list[0].itemName),
-        dataIndex: nameof(master.list[0].itemName),
-        align: "left",
-        sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
-          master.filter,
-          nameof(master.list[0].itemName)
-        ),
-        render(itemName: string) {
-          return (
-            <Tooltip title={itemName}>
-              <div className="ant-cell-master__container">
-                <div
-                  className={classNames("cell-master__first-row", {
-                    "first-row--ellipsis": itemName && itemName.length >= 50,
-                  })}
-                >
-                  <span>{itemName}</span>
-                </div>
-              </div>
-            </Tooltip>
-          );
-        },
-      },
-      {
-        title: (
-          <div className="text-right gradient-text">
-            {translate("internalOrderReports.delivery")}
-          </div>
-        ),
-        sorter: true,
-        key: nameof(master.list[0].deliveredQuantity),
-        dataIndex: nameof(master.list[0].deliveredQuantity),
-        align: "right",
-        sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
-          master.filter,
-          nameof(master.list[0].deliveredQuantity)
-        ),
-      },
-      {
-        title: (
-          <div className="text-right gradient-text">
-            {translate("internalOrderReports.pending")}
-          </div>
-        ),
-        sorter: true,
-        key: nameof(master.list[0].pendingQuantity),
-        dataIndex: nameof(master.list[0].pendingQuantity),
-        align: "right",
-        sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
-          master.filter,
-          nameof(master.list[0].pendingQuantity)
-        ),
-      },
-      {
-        title: (
-          <div className="text-right gradient-text">
-            {translate("internalOrderReports.storeOrder")}
-          </div>
-        ),
-        sorter: true,
-        key: nameof(master.list[0].storeOrderQuantity),
-        dataIndex: nameof(master.list[0].storeOrderQuantity),
-        align: "right",
-        sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
-          master.filter,
-          nameof(master.list[0].storeOrderQuantity)
-        ),
-      },
-    ],
-    [translate, master]
-  );
+  // const columns: ColumnProps<InternalOrder>[] = React.useMemo(
+  //   () => [
+  //     {
+  //       title: (
+  //         <div className="text-left gradient-text">
+  //           {translate("internalOrderReports.code")}
+  //         </div>
+  //       ),
+  //       align: "left",
+  //       sorter: true,
+  //       key: nameof(master.list[0].itemCode),
+  //       dataIndex: nameof(master.list[0].itemCode),
+  //       sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
+  //         master.filter,
+  //         nameof(master.list[0].itemCode)
+  //       ),
+  //       render(itemCode: string) {
+  //         return (
+  //           <div className="ant-cell-master__container">
+  //             <Tooltip title={itemCode}>
+  //               <div
+  //                 className={classNames("cell-master__first-row", {
+  //                   "first-row--ellipsis": itemCode && itemCode.length >= 30,
+  //                 })}
+  //               >
+  //                 <span>{itemCode}</span>
+  //               </div>
+  //             </Tooltip>
+  //           </div>
+  //         );
+  //       },
+  //     },
+  //     {
+  //       title: (
+  //         <div className="text-left gradient-text">
+  //           {translate("internalOrderReports.nameItem")}
+  //         </div>
+  //       ),
+  //       sorter: true,
+  //       key: nameof(master.list[0].itemName),
+  //       dataIndex: nameof(master.list[0].itemName),
+  //       align: "left",
+  //       sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
+  //         master.filter,
+  //         nameof(master.list[0].itemName)
+  //       ),
+  //       render(itemName: string) {
+  //         return (
+  //           <Tooltip title={itemName}>
+  //             <div className="ant-cell-master__container">
+  //               <div
+  //                 className={classNames("cell-master__first-row", {
+  //                   "first-row--ellipsis": itemName && itemName.length >= 50,
+  //                 })}
+  //               >
+  //                 <span>{itemName}</span>
+  //               </div>
+  //             </div>
+  //           </Tooltip>
+  //         );
+  //       },
+  //     },
+  //     {
+  //       title: (
+  //         <div className="text-right gradient-text">
+  //           {translate("internalOrderReports.delivery")}
+  //         </div>
+  //       ),
+  //       sorter: true,
+  //       key: nameof(master.list[0].deliveredQuantity),
+  //       dataIndex: nameof(master.list[0].deliveredQuantity),
+  //       align: "right",
+  //       sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
+  //         master.filter,
+  //         nameof(master.list[0].deliveredQuantity)
+  //       ),
+  //     },
+  //     {
+  //       title: (
+  //         <div className="text-right gradient-text">
+  //           {translate("internalOrderReports.pending")}
+  //         </div>
+  //       ),
+  //       sorter: true,
+  //       key: nameof(master.list[0].pendingQuantity),
+  //       dataIndex: nameof(master.list[0].pendingQuantity),
+  //       align: "right",
+  //       sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
+  //         master.filter,
+  //         nameof(master.list[0].pendingQuantity)
+  //       ),
+  //     },
+  //     {
+  //       title: (
+  //         <div className="text-right gradient-text">
+  //           {translate("internalOrderReports.storeOrder")}
+  //         </div>
+  //       ),
+  //       sorter: true,
+  //       key: nameof(master.list[0].storeOrderQuantity),
+  //       dataIndex: nameof(master.list[0].storeOrderQuantity),
+  //       align: "right",
+  //       sortOrder: getAntOrderType<InternalOrder, InternalOrderFilter>(
+  //         master.filter,
+  //         nameof(master.list[0].storeOrderQuantity)
+  //       ),
+  //     },
+  //   ],
+  //   [translate, master]
+  // );
 
   return (
     <Spin spinning={false}>

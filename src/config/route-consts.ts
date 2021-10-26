@@ -361,6 +361,11 @@ export const APP_USER_MASTER_ROUTE: string = join(
   "app-user-master"
 );
 
+export const APP_USER_DETAIL_ROUTE: string = join(
+  APP_USER_ROUTE,
+  "app-user-detail"
+);
+
 export const ACTION_ROUTE: string = ROOT_ROUTE
   ? ROOT_ROUTE + "/action"
   : "/action";

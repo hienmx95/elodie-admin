@@ -1,35 +1,28 @@
 /* begin general import */
-import { IdFilter, StringFilter } from "@react3l/advanced-filters";
+import { StringFilter } from "@react3l/advanced-filters";
 import { Col, Dropdown, Menu, Row, Tooltip } from "antd";
 import { ColumnProps } from "antd/lib/table";
+import classNames from "classnames";
 import { AppMainMasterFilter } from "components/AppMain/MasterPage/AppMainMasterFilter";
 import { AppMainMasterTable } from "components/AppMain/MasterPage/AppMainMasterTable";
 import { AppMainMasterTitle } from "components/AppMain/MasterPage/AppMainMasterTitle";
-import AdvanceIdFilter from "components/Utility/AdvanceFilter/AdvanceIdFilter/AdvanceIdFilter";
 /* end general import */
 /* begin filter import */
 import AdvanceStringFilter from "components/Utility/AdvanceFilter/AdvanceStringFilter/AdvanceStringFilter";
-import AdvanceTreeFilter from "components/Utility/AdvanceFilter/AdvanceTreeFilter/AdvanceTreeFilter";
-import { CUSTOMER_ROUTE, PRODUCT_ROUTE } from "config/route-consts";
-import { Category, CategoryFilter } from "models/Category";
+import { API_CUSTOMER_PREFIX } from "config/api-consts";
+import { CUSTOMER_ROUTE } from "config/route-consts";
 import { Customer, CustomerFilter } from "models/Customer";
-import { ProductProductGroupingMapping } from "models/ProductProductGroupingMapping";
-import { ProductType, ProductTypeFilter } from "models/ProductType";
-import { Status, StatusFilter } from "models/Status";
-import { UsedVariationFilter } from "models/UsedVariation";
 import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 /* end filter import */
 /* begin individual import */
 import { customerRepository } from "repositories/customer-repository";
+import authenticationService from "services/authentication-service";
 import masterService, { UseMaster } from "services/pages/master-service";
 import { getAntOrderType } from "services/table-service";
 import nameof from "ts-nameof.macro";
 import CustomerPreview from "./CustomerPreview";
 import "./ProductMaster.scss";
-import classNames from "classnames";
-import authenticationService from "services/authentication-service";
-import { API_CUSTOMER_PREFIX } from "config/api-consts";
 /* end individual import */
 
 function CustomerMaster() {

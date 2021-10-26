@@ -1,18 +1,14 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { commonService } from "@react3l/react3l/services";
 import { Card, Col, Row, Tabs } from "antd";
-import { AxiosError } from "axios";
 import AppFooter from "components/AppFooter/AppFooter";
 import DatePicker from "components/Utility/Calendar/DatePicker/DatePicker";
 import FormItem from "components/Utility/FormItem/FormItem";
 import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import InputText from "components/Utility/Input/InputText/InputText";
 import Select from "components/Utility/Select/Select";
-import SwitchStatus from "components/Utility/SwitchStatus/SwitchStatus";
 import TextArea from "components/Utility/TextArea/TextArea";
 import { CUSTOMER_SALES_ORDER_MASTER_ROUTE } from "config/route-consts";
 import { formatNumber } from "helpers/number";
-import Breadcrumbs from "layout/breadcrumb";
 import { AppUser, AppUserFilter } from "models/AppUser";
 import { CustomerFilter } from "models/Customer";
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
@@ -21,23 +17,19 @@ import { NationFilter } from "models/Nation";
 import { OrderPaymentStatusFilter } from "models/OrderPaymentStatus";
 import { ProvinceFilter } from "models/Province";
 import { RequestStateFilter } from "models/RequestState";
-import React, { Fragment, useCallback, useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router";
 import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
-import { finalize } from "rxjs/operators";
-import appMessageService from "services/app-message-service";
 import { formService } from "services/form-service";
 import detailService from "services/pages/detail-service";
-import { routerService } from "services/route-service";
 import nameof from "ts-nameof.macro";
 import AddCustomerModal from "./AddCustomerComponent/AddCustomerModal";
 import { useCustomerSalesOrderContentTable } from "./CustomerSalesOrderContentTable";
-import { useCustomerSalesOrderPromotionTable } from "./CustomerSalesOrderPromotionTable";
 import "./CustomerSalesOrderDetail.scss";
 import { useCustomerSalesOrderDetailHook } from "./CustomerSalesOrderDetailHook/CustomerSalesOrderDetailHook";
-import { useCustomerSalesOrderPaymentHistoryTable } from "./PaymentStausHistoryTable";
 import { useCustomerSalesOrderFooter } from "./CustomerSalesOrderDetailHook/CustomerSalesOrderFooterHook";
+import { useCustomerSalesOrderPromotionTable } from "./CustomerSalesOrderPromotionTable";
+import { useCustomerSalesOrderPaymentHistoryTable } from "./PaymentStausHistoryTable";
 
 function CustomerSalesOrderDetail() {
   const [translate] = useTranslation();
@@ -57,16 +49,16 @@ function CustomerSalesOrderDetail() {
     CUSTOMER_SALES_ORDER_MASTER_ROUTE
   );
   const {
-    issetOpportunity,
-    isOpenOpportunity,
-    setIsSetOpportunity,
-    handleToggleOpenOpportunity,
+    // issetOpportunity,
+    // isOpenOpportunity,
+    // setIsSetOpportunity,
+    // handleToggleOpenOpportunity,
     issetCustomer,
     isOpenCustomer,
     setIsSetCustomer,
     handleToggleOpenCustomer,
     handleChangeCustomer,
-    handleChangeEmployee,
+    // handleChangeEmployee,
     handleCopyInvoiceAddress,
     handleChangeInvoiceNation,
     handleChangeInvoiceProvince,
@@ -76,15 +68,15 @@ function CustomerSalesOrderDetail() {
     handleChangeDeliveryProvince,
     deliveryProvinceFilter,
     deliveryDistrictFilter,
-    editedPriceStatus,
-    handleChangeChangeEditPrice,
+    // editedPriceStatus,
+    // handleChangeChangeEditPrice,
     handleChangeGeneralDiscountPercentage,
     setCalculateTotal,
     changeEditPrice,
     setChangeEditPrice,
-    handleChangeOrderType,
+    // handleChangeOrderType,
     customerFilter,
-    customerId
+    // customerId
   } = useCustomerSalesOrderDetailHook(model, handleUpdateNewModel, isDetail);
 
   const { childrenAction } = useCustomerSalesOrderFooter(
@@ -94,16 +86,16 @@ function CustomerSalesOrderDetail() {
     handleGoBase
   );
 
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
 
   // Save
-  const [subscription] = commonService.useSubscription();
-  const history = useHistory();
-  const {
-    notifyUpdateItemSuccess,
-    notifyUpdateItemError,
-  } = appMessageService.useCRUDMessage();
-  const [handleGoBack] = routerService.useGoBack();
+  // const [subscription] = commonService.useSubscription();
+  // const history = useHistory();
+  // const {
+  //   notifyUpdateItemSuccess,
+  //   notifyUpdateItemError,
+  // } = appMessageService.useCRUDMessage();
+  // const [handleGoBack] = routerService.useGoBack();
   // const handleSave = useCallback(
   //   (
   //     onSaveSuccess?: (item: CustomerSalesOrder) => void,
