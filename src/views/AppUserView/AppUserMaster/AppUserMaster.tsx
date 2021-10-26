@@ -26,6 +26,7 @@ import authenticationService from "services/authentication-service";
 import masterService, { UseMaster } from "services/pages/master-service";
 import { getAntOrderType } from "services/table-service";
 import nameof from "ts-nameof.macro";
+import AppUserChangePassword from "./AppUserChangePassword";
 import "./AppUserMaster.scss";
 import AppUserPreview from "./AppUserPreview";
 import AppUserRoleMappingView, {
@@ -40,6 +41,21 @@ function AppUserMaster() {
     "appUser",
     API_APP_USER_PREFIX
   );
+
+  const [isOpenChangePassword, setIsOpenChangePassword] = React.useState<
+    boolean
+  >(false);
+
+  const [idChangePassword, setIdChangePassword] = React.useState<number>(null);
+
+  const handleOpenChangePassword = React.useCallback((value) => {
+    setIdChangePassword(value)
+    setIsOpenChangePassword(true);
+  }, []);
+
+  const handleCloseChangePassword = React.useCallback(() => {
+    setIsOpenChangePassword(false);
+  }, []);
 
   const master: UseMaster = masterService.useMaster<AppUser, AppUserFilter>(
     AppUserFilter,
@@ -100,6 +116,16 @@ function AppUserMaster() {
             </Tooltip>
           </Menu.Item>
         )}
+        <Menu.Item key="5">
+          <Tooltip title={translate("appUsers.changePassword")}>
+            <div
+              className="ant-action-menu"
+              onClick={() => handleOpenChangePassword(id)}
+            >
+              {translate("appUsers.changePassword")}
+            </div>
+          </Tooltip>
+        </Menu.Item>
         {appUser.statusId === 0 && validAction("delete") && (
           <Menu.Item key="4">
             <Tooltip title={translate("general.actions.delete")}>
@@ -114,7 +140,13 @@ function AppUserMaster() {
         )}
       </Menu>
     ),
-    [handleOpenPreview, handleOpenRoleView, translate, validAction]
+    [
+      handleOpenPreview,
+      handleOpenRoleView,
+      handleOpenChangePassword,
+      translate,
+      validAction,
+    ]
   );
 
   const columns: ColumnProps<AppUser>[] = useMemo(
@@ -480,6 +512,13 @@ function AppUserMaster() {
         isOpenPreview={isOpenPreview}
         isLoadingPreview={isLoadingPreview}
         handleClosePreview={handleClosePreview}
+        translate={translate}
+      />
+      <AppUserChangePassword
+        id={idChangePassword}
+        isOpenPreview={isOpenChangePassword}
+        isLoadingPreview={isLoadingPreview}
+        handleClosePanel={handleCloseChangePassword}
         translate={translate}
       />
       <AppUserRoleMappingView
