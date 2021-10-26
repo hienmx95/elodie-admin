@@ -38,8 +38,6 @@ function PaymentStatusHistoryModal(props: PaymentStatusHistoryModalProps) {
     onChangeObjectField,
     setModel,
     totalAmount,
-    valueTotal,
-    percentTotal,
   } = props;
 
   const [translate] = useTranslation();

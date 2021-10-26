@@ -4,7 +4,6 @@ import { INFINITE_SCROLL_TAKE } from "config/consts";
 import { formatDateTime } from "helpers/date-time";
 import { formatNumber } from "helpers/number";
 import { CustomerSalesOrderItemReport } from "models/CustomerSalesOrderItemReport";
-import { Moment } from "moment";
 import React, { useCallback } from "react";
 import { customerSalesOrderItemReportRepository } from "repositories/customer-sales-order-item-report-repository";
 import { v4 as uuidv4 } from "uuid";

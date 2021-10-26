@@ -1,42 +1,38 @@
 /* begin general import */
-import { PaginationProps, Popconfirm } from "antd";
-import { ColumnsType } from "antd/lib/table";
+import { Popconfirm } from "antd";
+import ContentTable from "components/Utility/ContentTable/ContentTable";
 import FormItem from "components/Utility/FormItem/FormItem";
 import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import Select from "components/Utility/Select/Select";
 import { formatNumber } from "helpers/number";
-import { renderMasterIndex } from "helpers/table";
-import { Item } from "models/Item";
 /* end general import */
 /* begin individual import */
 import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
 import { CustomerSalesOrderPromotionFilter } from "models/CustomerSalesOrderPromotion/CustomerSalesOrderPromotionFilter";
+import { Item } from "models/Item";
 import { UnitOfMeasure, UnitOfMeasureFilter } from "models/UnitOfMeasure";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import {
   AdvanceFilterAction,
   advanceFilterReducer,
-  advanceFilterService,
+  advanceFilterService
 } from "services/advance-filter-service";
+import {
+  CreateColumn, CreateTableColumns
+} from "services/component-factory/table-column-service";
 import { formService } from "services/form-service";
 import { importExportDataService } from "services/import-export-data-service";
 import listService from "services/list-service";
 import detailService from "services/pages/detail-service";
 import tableService from "services/table-service";
 import nameof from "ts-nameof.macro";
-import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
-import ContentTable from "components/Utility/ContentTable/ContentTable";
 import {
   CustomerSalesOrderItemModal,
-  useCustomerSalesOrderItem,
+  useCustomerSalesOrderItem
 } from "./CustomerSalesOrderItem";
-import {
-  CreateColumn,
-  CreateTableAction,
-  CreateTableColumns,
-} from "services/component-factory/table-column-service";
 /* end individual import */
 
 export function useCustomerSalesOrderPromotionTable(
@@ -121,9 +117,9 @@ export function useCustomerSalesOrderPromotionTable(
     handleContentExport,
     handleContentExportTemplate,
   } = importExportDataService.useExport();
-  const pagination: PaginationProps = tableService.usePagination<
-    CustomerSalesOrderPromotionFilter
-  >(customerSalesOrderPromotionFilter, total);
+  // const pagination: PaginationProps = tableService.usePagination<
+  //   CustomerSalesOrderPromotionFilter
+  // >(customerSalesOrderPromotionFilter, total);
   const handleDelete = React.useCallback(
     (index: number) => {
       return () => {
@@ -543,7 +539,9 @@ export function useCustomerSalesOrderPromotionTable(
   }, [
     customerSalesOrderPromotions,
     translate,
-    model,
+    handleChangeQuantity,
+    handleChangeUOMInContent,
+    handleDelete
   ]);
   const {
     openItemDialog,

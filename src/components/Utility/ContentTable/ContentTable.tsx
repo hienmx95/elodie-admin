@@ -1,12 +1,11 @@
 import { Model, ModelFilter } from "@react3l/react3l/core";
 import { Table, Tooltip } from "antd";
-import { TableRowSelection, ColumnsType } from "antd/lib/table/interface";
+import { ColumnsType, TableRowSelection } from "antd/lib/table/interface";
 import { AxiosResponse } from "axios";
 import Pagination from "components/Utility/Pagination/Pagination";
 import React, { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { Observable } from "rxjs";
-import { TableColumn } from "services/component-factory/table-column-service";
 import nameof from "ts-nameof.macro";
 
 export interface ContentTableProps<

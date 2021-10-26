@@ -4,7 +4,6 @@ import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import Select from "components/Utility/Select/Select";
 import { Inventory, InventoryFilter } from "models/Inventory";
 import { Item } from "models/Item";
-import { Supplier, SupplierFilter } from "models/Supplier";
 import { UnitOfMeasure, UnitOfMeasureFilter } from "models/UnitOfMeasure";
 import { Warehouse } from "models/Warehouse";
 import React from "react";
@@ -13,13 +12,13 @@ import { warehouseRepository } from "repositories/warehouse-repository";
 import {
   AdvanceFilterAction,
   advanceFilterReducer,
-  advanceFilterService,
+  advanceFilterService
 } from "services/advance-filter-service";
 import { componentFactoryService } from "services/component-factory/component-factory-service";
 import {
   CreateColumn,
   CreateTableAction,
-  CreateTableColumns,
+  CreateTableColumns
 } from "services/component-factory/table-column-service";
 import { formService } from "services/form-service";
 import { importExportDataService } from "services/import-export-data-service";
@@ -75,7 +74,7 @@ export function useInventoryTable(
     handleLocalDelete,
     handleLocalBulkDelete,
     handleChangeAllRow,
-    handleChangeOneCell,
+    // handleChangeOneCell,
     handleChangeOneRow,
     handleAddContent,
   } = tableService.useLocalTable<Inventory, any, InventoryFilter>(
@@ -278,7 +277,6 @@ export function useInventoryTable(
     RenderActionColumn,
     translate,
     handleLocalDelete,
-    handleChangeOneCell,
     handleChangeQuantity,
     model.errors,
     model.alternateUnitOfMeasureId,

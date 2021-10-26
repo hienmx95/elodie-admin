@@ -23,12 +23,11 @@ import { useTranslation } from "react-i18next";
 import { warehouseRepository } from "repositories/warehouse-repository";
 import { enumService } from "services/enum-service";
 import { formService } from "services/form-service";
-import { importExportDataService } from "services/import-export-data-service";
 import detailService from "services/pages/detail-service";
 import nameof from "ts-nameof.macro";
 import { useInventoryTable } from "./InventoryHook";
-import { useWarehouseItem, WarehouseItemModal } from "./WarehouseItemHook";
 import { useWarehouseFooter } from "./WarehouseFooterHook";
+import { useWarehouseItem, WarehouseItemModal } from "./WarehouseItemHook";
 /* end individual import */
 
 const { Panel } = Collapse;

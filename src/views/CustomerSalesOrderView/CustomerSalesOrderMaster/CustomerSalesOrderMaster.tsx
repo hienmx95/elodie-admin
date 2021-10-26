@@ -1,9 +1,9 @@
 import {
   IdFilter,
   NumberFilter,
-  StringFilter,
+  StringFilter
 } from "@react3l/advanced-filters";
-import { Col, Row, Switch, Tooltip, Dropdown, Menu } from "antd";
+import { Col, Dropdown, Menu, Row, Tooltip } from "antd";
 import { ColumnProps } from "antd/lib/table";
 import { AppMainMasterFilter } from "components/AppMain/MasterPage/AppMainMasterFilter";
 import { AppMainMasterTable } from "components/AppMain/MasterPage/AppMainMasterTable";
@@ -19,12 +19,12 @@ import { AppUser, AppUserFilter } from "models/AppUser";
 import { Customer, CustomerFilter } from "models/Customer";
 import {
   CustomerSalesOrder,
-  CustomerSalesOrderFilter,
+  CustomerSalesOrderFilter
 } from "models/CustomerSalesOrder";
 import { EditedPriceStatusFilter } from "models/EditedPriceStatus";
 import {
   OrderPaymentStatus,
-  OrderPaymentStatusFilter,
+  OrderPaymentStatusFilter
 } from "models/OrderPaymentStatus";
 import { RequestState, RequestStateFilter } from "models/RequestState";
 import { Moment } from "moment";
@@ -108,7 +108,7 @@ function CustomerSalesOrderMaster() {
         )} */}
       </Menu>
     ),
-    [master, translate]
+    [master, translate, handleOpenPreview]
   );
 
   const columns: ColumnProps<CustomerSalesOrder>[] = useMemo(

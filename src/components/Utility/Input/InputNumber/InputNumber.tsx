@@ -5,9 +5,13 @@ import "./InputNumber.scss";
 
 export const DECIMAL: string = "DECIMAL";
 export const LONG: string = "LONG";
+export const PHONE: string = "PHONE";
+export const FAX: string = "FAX";
+
+export type InputType = "text" | "number";
 
 export interface InputNumberProps<T extends Model> {
-  value?: number;
+  value?: number | string;
   allowPositive?: boolean;
   isMaterial?: boolean;
   error?: string;
@@ -20,6 +24,10 @@ export interface InputNumberProps<T extends Model> {
   onChange?: (T: number) => void;
   onEnter?: (T: number) => void;
   onBlur?: (T: number) => void;
+  type?: InputType;
+  maxLength?: number;
+  min?: number;
+  max?: number;
 }
 
 function InputNumber(props: InputNumberProps<Model>) {
@@ -36,6 +44,10 @@ function InputNumber(props: InputNumberProps<Model>) {
     onChange,
     onEnter,
     onBlur,
+    type,
+    maxLength,
+    min,
+    max,
   } = props;
 
   const [internalValue, setInternalValue] = React.useState<string>("");
@@ -82,6 +94,24 @@ function InputNumber(props: InputNumberProps<Model>) {
             return inputValue.replace(newRegEx, (m, s1, s2) => {
               return s2 || s1 + ".";
             });
+          case PHONE:
+            if (allowPositive) {
+              inputValue = inputValue
+                .replace(/[^0-9-]/g, "")
+                .replace(/(?!^)-/g, "");
+            } else {
+              inputValue = inputValue.replace(/[^0-9]/g, "");
+            }
+            return inputValue;
+          case FAX:
+            if (allowPositive) {
+              inputValue = inputValue
+                .replace(/[^0-9-]/g, "")
+                .replace(/(?!^)-/g, "");
+            } else {
+              inputValue = inputValue.replace(/[^0-9]/g, "");
+            }
+            return inputValue;
           default:
             if (allowPositive) {
               inputValue = inputValue
@@ -112,6 +142,24 @@ function InputNumber(props: InputNumberProps<Model>) {
             return inputValue.replace(newRegEx, (m, s1, s2) => {
               return s2 || s1 + ",";
             });
+          case PHONE:
+            if (allowPositive) {
+              inputValue = inputValue
+                .replace(/[^0-9-]/g, "")
+                .replace(/(?!^)-/g, "");
+            } else {
+              inputValue = inputValue.replace(/[^0-9]/g, "");
+            }
+            return inputValue;
+          case FAX:
+            if (allowPositive) {
+              inputValue = inputValue
+                .replace(/[^0-9-]/g, "")
+                .replace(/(?!^)-/g, "");
+            } else {
+              inputValue = inputValue.replace(/[^0-9]/g, "");
+            }
+            return inputValue;
           default:
             if (allowPositive) {
               inputValue = inputValue
@@ -142,6 +190,14 @@ function InputNumber(props: InputNumberProps<Model>) {
             isOutOfRange = stringValue.length > 21 ? true : false;
             number = parseFloat(stringValue);
             return [number, isOutOfRange];
+          case PHONE:
+            isOutOfRange = stringValue.length > 17 ? true : false;
+            number = stringValue;
+            return [number, isOutOfRange];
+          case FAX:
+            isOutOfRange = stringValue.length > 51 ? true : false;
+            number = stringValue;
+            return [number, isOutOfRange];
           default:
             isOutOfRange = stringValue.length > 17 ? true : false;
             number = parseInt(stringValue);
@@ -159,13 +215,20 @@ function InputNumber(props: InputNumberProps<Model>) {
       const stringValue = formatString(event.target.value);
       const [numberValue, isOutOfRange] = parseNumber(stringValue);
       if (!isOutOfRange) {
-        setInternalValue(stringValue);
-        if (typeof onChange === "function") {
-          onChange(numberValue);
+        if (max && numberValue > max) {
+          setInternalValue(String(max));
+          if (typeof onChange === "function") {
+            onChange(max);
+          }
+        } else {
+          setInternalValue(stringValue);
+          if (typeof onChange === "function") {
+            onChange(numberValue);
+          }
         }
       }
     },
-    [formatString, parseNumber, onChange]
+    [formatString, parseNumber, onChange, max]
   );
 
   const handleClearInput = React.useCallback(
@@ -224,7 +287,7 @@ function InputNumber(props: InputNumberProps<Model>) {
     <>
       <div className="input-number__container">
         <input
-          type="text"
+          type={type || "text"}
           value={internalValue}
           onChange={handleChange}
           onKeyDown={handleKeyPress}
@@ -237,6 +300,9 @@ function InputNumber(props: InputNumberProps<Model>) {
             "component__input--bordered": !isMaterial,
             "disabled-field": disabled,
           })}
+          maxLength={maxLength}
+          min={min}
+          max={max}
         />
         {internalValue && !disabled ? (
           <i

@@ -1,15 +1,14 @@
-import React from "react";
-import { Switch } from "react-router-dom";
+import { ProtectedRoute, useCheckAuthorized } from "config/protected-route";
 import {
   CUSTOMER_SALES_ORDER_DETAIL_ROUTE,
-  CUSTOMER_SALES_ORDER_MASTER_ROUTE,
-  CUSTOMER_SALES_ORDER_PREVIEW_ROUTE,
+  CUSTOMER_SALES_ORDER_MASTER_ROUTE
 } from "config/route-consts";
-
-import "./CustomerSalesOrderView.scss";
-import CustomerSalesOrderMaster from "./CustomerSalesOrderMaster/CustomerSalesOrderMaster";
-import { ProtectedRoute, useCheckAuthorized } from "config/protected-route";
+import React from "react";
+import { Switch } from "react-router-dom";
 import CustomerSalesOrderDetail from "./CustomerSalesOrderDetail/CustomerSalesOrderDetail";
+import CustomerSalesOrderMaster from "./CustomerSalesOrderMaster/CustomerSalesOrderMaster";
+import "./CustomerSalesOrderView.scss";
+
 
 function CustomerSalesOrderView() {
   const { auth } = useCheckAuthorized();

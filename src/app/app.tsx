@@ -1,5 +1,5 @@
-import { Card, Row, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { Card, Row, Spin } from "antd";
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import Modal from "antd/lib/modal/Modal";
 import {
@@ -11,10 +11,9 @@ import {
 } from "app/app-context";
 import useApp, { useAuthorizedApp } from "app/app-hook";
 import React, { Fragment, useMemo } from "react";
-import Header from "../layout/header";
-import Loader from "../layout/loader";
-import Sidebar from "../layout/sidebar";
 import { useTranslation } from "react-i18next";
+import Header from "../layout/header";
+import Sidebar from "../layout/sidebar";
 
 function App(props) {
   const [translate] = useTranslation();

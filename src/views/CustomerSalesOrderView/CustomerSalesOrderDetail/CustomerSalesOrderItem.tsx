@@ -1,16 +1,19 @@
 import { IdFilter } from "@react3l/advanced-filters";
+import { Model } from "@react3l/react3l/core";
 import { commonService } from "@react3l/react3l/services";
-import { Card, Checkbox, Col, Row, Spin } from "antd";
+import { Card, Checkbox, Col, Modal as ModalWarning, Row, Spin } from "antd";
 import { CheckboxChangeEvent } from "antd/lib/checkbox";
 import AdvanceStringFilter from "components/Utility/AdvanceFilter/AdvanceStringFilter/AdvanceStringFilter";
 import Modal from "components/Utility/Modal/Modal";
 import Pagination from "components/Utility/Pagination/Pagination";
 import { TFunction } from "i18next";
-import { Item, ItemFilter } from "models/Item";
+import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 import { CustomerSalesOrderContent } from "models/CustomerSalesOrderContent";
 import { CustomerSalesOrderPromotion } from "models/CustomerSalesOrderPromotion";
+import { Item, ItemFilter } from "models/Item";
 import React, { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
 import { forkJoin } from "rxjs";
 import { finalize } from "rxjs/operators";
 import {
@@ -22,10 +25,6 @@ import { commonWebService } from "services/common-web-service";
 import nameof from "ts-nameof.macro";
 import box from "./../../../assets/images/box-image.svg";
 import circle from "./../../../assets/images/green-circle.svg";
-import { customerSalesOrderRepository } from "repositories/customer-sales-order-repository";
-import { Model } from "@react3l/react3l/core";
-import { Modal as ModalWarning } from "antd";
-import { CustomerSalesOrder } from "models/CustomerSalesOrder";
 interface CustomerSalesOrderItemAction {
   type: string;
   itemList?: Item[];
@@ -247,7 +246,7 @@ export function useCustomerSalesOrderItem<T extends Model>(
         setOpenItemDialog(true);
       }
     },
-    [itemFilter, handleGetItemList, CustomerSalesOrder]
+    [itemFilter, handleGetItemList, CustomerSalesOrder, translate]
   );
 
   const handleCheckItem = React.useCallback(

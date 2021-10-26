@@ -1,39 +1,13 @@
 import { CaretRightOutlined } from "@ant-design/icons";
-import { Checkbox, Col, Collapse, Row, Steps, Table, Tooltip } from "antd";
-import { ColumnProps } from "antd/lib/table";
-import classNames from "classnames";
+import { Col, Collapse, Row } from "antd";
 import AppFooter from "components/AppFooter/AppFooter";
-import { DECIMAL } from "components/Utility/AdvanceFilter/AdvanceNumberFilter/AdvanceNumberFilter";
-import CategorySelect from "components/Utility/CategorySelect/CategorySelect";
+import DatePicker from "components/Utility/Calendar/DatePicker/DatePicker";
 import FormItem from "components/Utility/FormItem/FormItem";
-import InputNumber from "components/Utility/Input/InputNumber/InputNumber";
 import InputText from "components/Utility/Input/InputText/InputText";
 import Select from "components/Utility/Select/Select";
-import SwitchStatus from "components/Utility/SwitchStatus/SwitchStatus";
-import TreeSelect from "components/Utility/TreeSelect/TreeSelect";
-import UploadFile, { UPLOADTYPE } from "components/Utility/UploadFile/UploadFile";
 import { CUSTOMER_MASTER_ROUTE } from "config/route-consts";
-import { BrandFilter } from "models/Brand";
-import { CategoryFilter } from "models/Category/CategoryFilter";
+import { AppUser, AppUserFilter } from "models/AppUser";
 import { Customer } from "models/Customer";
-import { ProductGroupingFilter } from "models/ProductGrouping";
-import { ProductImageMapping } from "models/ProductImageMapping";
-import { ProductProductGroupingMapping } from "models/ProductProductGroupingMapping";
-import { ProductTypeFilter } from "models/ProductType";
-import { TaxTypeFilter } from "models/TaxType";
-import { UnitOfMeasureFilter } from "models/UnitOfMeasure";
-import { UnitOfMeasureGroupingFilter } from "models/UnitOfMeasureGrouping/UnitOfMeasureGroupingFilter";
-import moment from "moment";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { customerRepository } from "repositories/customer-repository";
-import { formService } from "services/form-service";
-import detailService from "services/pages/detail-service";
-import nameof from "ts-nameof.macro";
-import "./ProductDetail.scss";
-import { useCustomerDetailHook } from "./CustomerDetailHook/CustomerDetailHook";
-import { useCustomerFooter } from "./CustomerDetailHook/CustomerFooterHook";
-import { CustomerGroupingFilter } from "models/CustomerGrouping";
 import { CustomerSourceFilter } from "models/CustomerSource";
 import { DistrictFilter } from "models/District";
 import { NationFilter } from "models/Nation";
@@ -41,8 +15,15 @@ import { ProfessionFilter } from "models/Profession";
 import { ProvinceFilter } from "models/Province";
 import { SexFilter } from "models/Sex";
 import { StatusFilter } from "models/Status";
-import DatePicker from "components/Utility/Calendar/DatePicker/DatePicker";
-import { AppUser, AppUserFilter } from "models/AppUser";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { customerRepository } from "repositories/customer-repository";
+import { formService } from "services/form-service";
+import detailService from "services/pages/detail-service";
+import nameof from "ts-nameof.macro";
+import { useCustomerDetailHook } from "./CustomerDetailHook/CustomerDetailHook";
+import { useCustomerFooter } from "./CustomerDetailHook/CustomerFooterHook";
+import "./ProductDetail.scss";
 
 const { Panel } = Collapse;
 
@@ -50,7 +31,7 @@ function CustomerDetail() {
   const [translate] = useTranslation();
   const {
     model,
-    isDetail,
+    // isDetail,
     handleUpdateNewModel,
     handleChangeSimpleField,
     handleChangeObjectField,
@@ -64,14 +45,14 @@ function CustomerDetail() {
   );
   
   const {
-    display,
-    dropdownOpen,
-    onChangeCurrency,
-    toggleDropDown,
-    dropdownOpen1,
-    toggleDropDown1,
-    handleToggleOpenCompany,
-    isOpenCompany,
+    // display,
+    // dropdownOpen,
+    // onChangeCurrency,
+    // toggleDropDown,
+    // dropdownOpen1,
+    // toggleDropDown1,
+    // handleToggleOpenCompany,
+    // isOpenCompany,
     handleChangeNation,
     handleChangeProvince,
     provinceFilter,

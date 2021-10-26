@@ -201,7 +201,7 @@ export function useCustomerSalesOrderPaymentHistoryTable(
         orderPaymentStatus: { id: 1, name: "Chưa thanh toán" },
       });
     }
-  }, [setModel, model, customerSalesOrderPaymentHistories]);
+  }, [setModel, model]);
 
   const [first, setFirst] = React.useState<boolean>(true);
 
@@ -279,7 +279,7 @@ export function useCustomerSalesOrderPaymentHistoryTable(
       }),
     );
   },[
-    translate, customerSalesOrderPaymentHistories, pagination
+    translate, customerSalesOrderPaymentHistories
   ]);
 
   const customerSalesOrderPaymentHistoryTable = React.useMemo(
@@ -314,6 +314,9 @@ export function useCustomerSalesOrderPaymentHistoryTable(
       loadingList,
       total,
       handleTableChange,
+      handleClick,
+      handleImportContentList,
+      ref,
       rowSelection,
       handleLocalBulkDelete,
       canBulkDelete,

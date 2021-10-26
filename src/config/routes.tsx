@@ -49,10 +49,6 @@ import WarehouseView from 'views/WarehouseView/WarehouseView';
 import InternalOrderReportView from "views/InternalOrderReportView/InternalOrderReportView";
 import { INTERNAL_ORDER_REPORT_MASTER_ROUTE } from 'config/route-consts';
 
-
-import CustomerSalesOrderItemReportView from "views/Report/CustomerSalesOrderReport/CustomerSalesOrderItemReportView/CustomerSalesOrderItemReport";
-import { CUSTOMER_SALES_ORDER_ITEM_REPORT_ROUTE } from 'config/route-consts';
-
 import CustomerSalesOrderReportView from "views/Report/CustomerSalesOrderReport/CustomerSalesOrderReportView";
 import { CUSTOMER_SALES_ORDER_REPORT_ROUTE } from 'config/route-consts';
 
