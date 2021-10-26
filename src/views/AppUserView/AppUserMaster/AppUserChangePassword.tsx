@@ -85,6 +85,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
                       >
                         <InputText
                           isMaterial={true}
+                          type={'password'}
                           value={model.newPassword}
                           onChange={handleChangePassWord()}
                         />
@@ -105,6 +106,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
                       >
                         <InputText
                           isMaterial={true}
+                          type={'password'}
                           value={model.reNewpassword}
                           onChange={handleChangePassWordRe()}
                         />

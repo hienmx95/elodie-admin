@@ -9,6 +9,7 @@ interface InputText<T extends Model> {
   disabled?: boolean;
   placeHolder?: string;
   className?: string;
+  type?: string;
   onChange?: (T: string) => void;
   onEnter?: (T: string) => void;
   onBlur?: (T: string) => void;
@@ -21,6 +22,7 @@ function InputText(props: InputText<Model>) {
     disabled,
     placeHolder,
     className,
+    type = 'text',
     onChange,
     onEnter,
     onBlur,
@@ -86,7 +88,7 @@ function InputText(props: InputText<Model>) {
     <>
       <div className='input-text__container'>
         <input
-          type='text'
+          type={type}
           value={internalValue}
           onChange={handleChange}
           onKeyDown={handleKeyPress}
