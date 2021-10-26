@@ -93,7 +93,7 @@ function CustomerSalesOrderMaster() {
           </Tooltip>
           </Menu.Item>
         )}
-        {!customerSalesOrder.used && (
+        {/* {!customerSalesOrder.used && (
           <Menu.Item key="32">
             <Tooltip title={translate("general.actions.delete")}>
               <div
@@ -105,7 +105,7 @@ function CustomerSalesOrderMaster() {
             </Tooltip>
           </Menu.Item>
           
-        )}
+        )} */}
       </Menu>
     ),
     [master, translate]
