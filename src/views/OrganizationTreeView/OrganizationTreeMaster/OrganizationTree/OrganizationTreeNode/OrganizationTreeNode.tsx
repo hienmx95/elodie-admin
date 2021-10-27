@@ -135,7 +135,7 @@ function OrganizationTreeNode<T extends Model>(props: TreeNodeProps<T>) {
                 <i
                   role="button"
                   className="tio-add color-primary"
-                  onClick={onAdd(node)}
+                  onClick={onAdd(node?.item?.id)}
                 />
               )}
               {typeof onEdit === "function" && (
@@ -143,7 +143,7 @@ function OrganizationTreeNode<T extends Model>(props: TreeNodeProps<T>) {
                 <i
                   role="button"
                   className="tio-edit color-primary "
-                  onClick={onEdit(node.id)}
+                  onClick={onEdit(node?.item?.id)}
                 />
               )}
               {typeof onDelete === "function" && !hasChildren && (
@@ -151,7 +151,7 @@ function OrganizationTreeNode<T extends Model>(props: TreeNodeProps<T>) {
                 <i
                   role="button"
                   className="tio-delete_outlined color-primary"
-                  onClick={onDelete(node)}
+                  onClick={onDelete(node?.item)}
                 />
               )}
               {/* <Switch

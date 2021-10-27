@@ -28,5 +28,5 @@ function OrganizationTreeView() {
     );
 }
 
-export { OrganizationTreeMaster };
+export { OrganizationTreeMaster, OrganizationTreeDetail};
 export default OrganizationTreeView;

@@ -1,5 +1,6 @@
 /* begin general import */
 import { CaretRightOutlined } from "@ant-design/icons";
+import { commonService } from "@react3l/react3l/services";
 import { Col, Collapse, Row } from "antd";
 import AppFooter from "components/AppFooter/AppFooter";
 import FormItem from "components/Utility/FormItem/FormItem";
@@ -8,9 +9,7 @@ import SwitchStatus from "components/Utility/SwitchStatus/SwitchStatus";
 import TreeSelect from "components/Utility/TreeSelect/TreeSelect";
 /* end general import */
 /* begin individual import */
-import {
-  ORGANIZATION_MASTER_ROUTE,
-} from "config/route-consts";
+import { ORGANIZATION_ROUTE } from "config/route-consts";
 import { Organization, OrganizationFilter } from "models/Organization";
 import { Status } from "models/Status";
 import React from "react";
@@ -29,6 +28,7 @@ function OrganizationTreeDetail() {
   const [translate] = useTranslation();
   const {
     model,
+    handleUpdateNewModel,
     isDetail,
     handleChangeSimpleField,
     handleChangeTreeObjectField,
@@ -39,7 +39,7 @@ function OrganizationTreeDetail() {
     Organization,
     organizationRepository.get,
     organizationRepository.save,
-    ORGANIZATION_MASTER_ROUTE
+    ORGANIZATION_ROUTE
   );
   const { childrenAction } = useOrganizationTreeFooterHook(
     translate,
@@ -50,12 +50,34 @@ function OrganizationTreeDetail() {
   const [statusList] = enumService.useEnumList<Status>(
     organizationRepository.singleListStatus
   );
-
-//   const res = window.location.href.split('=');
-//   let idOrg: number = null;
-//   if (res && res.length > 1) {
-//     idOrg = Number(res[1]);
-//   }
+  const [isSet, setIsSet] = React.useState<boolean>(true);
+  const res = window.location.href.split("=");
+  // let idOrg: any = null;
+  // if (isSet && res && res.length > 1) {
+  //   setIsSet(false);
+  //   idOrg = Number(res[1]);
+  //   let parenttt = new Organization();
+  //   // parenttt.id = (res[1]);
+  //   parenttt.name = (res[1]);
+  //   handleUpdateNewModel({ ...model, parent: parenttt });
+  // }
+  const [subscription] = commonService.useSubscription();
+  const url = document.URL;
+  React.useEffect(() => {
+    if (isSet && url.includes("createId=")) {
+      setIsSet(false);
+      subscription.add(
+        organizationRepository
+          .get(Number(res[1]))
+          .pipe()
+          .subscribe((item: Organization) => {
+            model.parent = item;
+            model.parentId = item?.id;
+            handleUpdateNewModel(model);
+          })
+      );
+    }
+  }, [handleUpdateNewModel, isSet, model, res, subscription, url]);
   return (
     <>
       <div className="page page__detail">
@@ -83,14 +105,12 @@ function OrganizationTreeDetail() {
                   expandIconPosition="right"
                 >
                   <Panel
-                    header={translate(
-                      "organizations.titles.generalInformation"
-                    )}
+                    header={translate("organizations.detail.title")}
                     key="1"
                     className="site-collapse-custom-panel"
                   >
                     <Row className="justify-content-between">
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.code")}
                           validateStatus={formService.getValidationStatus<
@@ -111,14 +131,13 @@ function OrganizationTreeDetail() {
                           />
                         </FormItem>
                       </Col>
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.address")}
                           validateStatus={formService.getValidationStatus<
                             Organization
                           >(model.errors, nameof(model.address))}
                           message={model.errors?.address}
-                          isRequired={true}
                         >
                           <InputText
                             isMaterial={true}
@@ -134,7 +153,7 @@ function OrganizationTreeDetail() {
                       </Col>
                     </Row>
                     <Row className="justify-content-between">
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.name")}
                           validateStatus={formService.getValidationStatus<
@@ -155,14 +174,13 @@ function OrganizationTreeDetail() {
                           />
                         </FormItem>
                       </Col>
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.email")}
                           validateStatus={formService.getValidationStatus<
                             Organization
                           >(model.errors, nameof(model.email))}
                           message={model.errors?.email}
-                          isRequired={true}
                         >
                           <InputText
                             isMaterial={true}
@@ -178,7 +196,7 @@ function OrganizationTreeDetail() {
                       </Col>
                     </Row>
                     <Row className="justify-content-between">
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail mt-3">
                         <FormItem>
                           <span className="component__title mr-3">
                             {translate("roles.status")}
@@ -196,14 +214,13 @@ function OrganizationTreeDetail() {
                           />
                         </FormItem>
                       </Col>
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.phone")}
                           validateStatus={formService.getValidationStatus<
                             Organization
                           >(model.errors, nameof(model.phone))}
                           message={model.errors?.phone}
-                          isRequired={true}
                         >
                           <InputText
                             isMaterial={true}
@@ -214,35 +231,35 @@ function OrganizationTreeDetail() {
                             onChange={handleChangeSimpleField(
                               nameof(model.phone)
                             )}
+                            className={"tio-layers"}
                           />
                         </FormItem>
                       </Col>
                     </Row>
                     <Row className="justify-content-between">
-                      <Col lg={7} className="labelDetail">
+                      <Col lg={11} className="labelDetail">
                         <FormItem
                           label={translate("organizations.organization")}
                           validateStatus={formService.getValidationStatus<
                             Organization
-                          >(model.errors, nameof(model.organization))}
-                          message={model.errors?.organization}
-                          isRequired={true}
+                          >(model.errors, nameof(model.parent))}
+                          message={model.errors?.parent}
                         >
                           <TreeSelect
                             isMaterial={true}
                             placeHolder={translate(
-                              "warehouses.placeholder.organization"
+                              "organizations.placeholder.organization"
                             )}
                             selectable={true}
                             classFilter={OrganizationFilter}
                             onChange={handleChangeTreeObjectField(
-                              nameof(model.organization)
+                              nameof(model.parent)
                             )}
                             checkStrictly={true}
                             getTreeData={
                               organizationRepository.singleListOrganization
                             }
-                            item={model.organization}
+                            item={model.parent}
                             // defaultValue={isDetail ? model.parent?.id : idOrg}
                           />
                         </FormItem>
@@ -252,7 +269,6 @@ function OrganizationTreeDetail() {
                 </Collapse>
               </Col>
             </Row>
-            )
           </>
         </div>
         <AppFooter childrenAction={childrenAction} />

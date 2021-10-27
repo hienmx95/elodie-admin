@@ -5,5 +5,19 @@
   "organizations.appUsers.phone": "Số điện thoại",
   "organizations.placeholder.appUser": "Chọn trạng thái",
   "organizations.appUser": "Nhân viên",
-  "organizations.errors.changeDisplay": "Không thể thực hiện thay đổi do đơn vị cha không được hiển thị"
+  "organizations.errors.changeDisplay": "Không thể thực hiện thay đổi do đơn vị cha không được hiển thị",
+  "organizations.address": "Địa chỉ",
+  "organizations.code": "Mã đơn vị",
+  "organizations.detail.title": "Thông tin chi tiết",
+  "organizations.email": "Email",
+  "organizations.name": "Tên",
+  "organizations.organization": "Đơn vị cha",
+  "organizations.phone": "Số điện thoại",
+  "organizations.placeholder.address": "Nhập địa chỉ",
+  "organizations.placeholder.code": "Nhập mã đơn vị",
+  "organizations.placeholder.email": "Nhập email",
+  "organizations.placeholder.name": "Nhập tên đơn vị",
+  "organizations.placeholder.organization": "Chọn đơn vị cha",
+  "organizations.placeholder.phone": "Nhập SĐT",
+  "organizations.status": "Trạng thái"
 }

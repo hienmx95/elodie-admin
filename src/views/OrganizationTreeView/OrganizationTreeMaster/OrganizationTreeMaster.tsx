@@ -18,7 +18,8 @@ import { ModelFilter } from "@react3l/react3l/core";
 import authenticationService from "services/authentication-service";
 import { API_ORGANIZATION_PREFIX } from "config/api-consts";
 import { routerService } from "services/route-service";
-import { ORGANIZATION_DETAIL_ROUTE } from "config/route-consts";
+import { ORGANIZATION_DETAIL_ROUTE, ORGANIZATION_ROUTE } from "config/route-consts";
+import { useHistory } from "react-router";
 
 function OrganizationTreeMaster() {
   const [translate] = useTranslation();
@@ -63,9 +64,17 @@ function OrganizationTreeMaster() {
   );
   const [
     handleCreate,
-    handleGoDetail,
-    handleGoCreate,
-  ] = routerService.useMasterNavigation(ORGANIZATION_DETAIL_ROUTE);
+    handleGoDetail
+  ] = routerService.useMasterNavigation(ORGANIZATION_ROUTE);
+  const history = useHistory();
+  const handleGoCreate = React.useCallback(
+    (node: any) => {
+      return () => {
+        history.push(`${ORGANIZATION_DETAIL_ROUTE}?createId=${node}`);
+      };
+    },
+    [history]
+  );
   const columns: ColumnProps<AppUser>[] = React.useMemo(
     () => [
       {

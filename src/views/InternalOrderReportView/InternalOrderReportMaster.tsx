@@ -41,17 +41,17 @@ export default function InternalOrderReportMaster() {
     internalOrderReportRepository.countItem
   );
 
-//   const master: UseMaster = masterService.useMaster<
-//   CustomerSalesOrder,
-//   CustomerSalesOrderFilter
-// >(
-//   CustomerSalesOrderFilter,
-//   CUSTOMER_SALES_ORDER_ROUTE,
-//   customerSalesOrderRepository.list,
-//   customerSalesOrderRepository.count,
-//   customerSalesOrderRepository.delete,
-//   customerSalesOrderRepository.bulkDelete
-// );
+  //   const master: UseMaster = masterService.useMaster<
+  //   CustomerSalesOrder,
+  //   CustomerSalesOrderFilter
+  // >(
+  //   CustomerSalesOrderFilter,
+  //   CUSTOMER_SALES_ORDER_ROUTE,
+  //   customerSalesOrderRepository.list,
+  //   customerSalesOrderRepository.count,
+  //   customerSalesOrderRepository.delete,
+  //   customerSalesOrderRepository.bulkDelete
+  // );
 
   const ref = React.useRef<boolean>(true);
   React.useEffect(() => {
@@ -168,31 +168,23 @@ export default function InternalOrderReportMaster() {
     [master]
   );
 
-  const {
-    countOrder: orderCounter,
-  } = useGetData(
+  const { countOrder: orderCounter } = useGetData(
     master.filter,
     internalOrderReportRepository.orderCounter,
     setLoading
   );
-  const {
-    countOrder: totalRevenue,
-  } = useGetData(
+  const { countOrder: totalRevenue } = useGetData(
     master.filter,
     internalOrderReportRepository.totalRevenue,
     setLoading
   );
 
-  const {
-    countOrder: completedOrderCounter,
-  } = useGetData(
+  const { countOrder: completedOrderCounter } = useGetData(
     master.filter,
     internalOrderReportRepository.completedOrderCounter,
     setLoading
   );
-  const {
-    countOrder: processingOrderCounter,
-  } = useGetData(
+  const { countOrder: processingOrderCounter } = useGetData(
     master.filter,
     internalOrderReportRepository.processingOrderCounter,
     setLoading
@@ -314,9 +306,7 @@ export default function InternalOrderReportMaster() {
       <div className="page page__master dashboard-user__container">
         <Row>
           <Col lg={2} className="title__container">
-            <span className="title">
-              {translate("Báo cáo")}
-            </span>
+            <span className="title">{translate("Báo cáo")}</span>
           </Col>
           <Col lg={3} className="ml-2">
             <div
@@ -357,18 +347,16 @@ export default function InternalOrderReportMaster() {
           <Col lg={2}></Col>
           {timeOption !== undefined &&
             timeOption.map((o, index) => (
-              <>
-                <Col lg={2} className="mr-1" key={index}>
-                  <div
-                    className={classNames(
-                      o?.checked === false ? "btn-report" : "btn-report-active"
-                    )}
-                    onClick={() => handleChooseTime(o)}
-                  >
-                    {o?.name}
-                  </div>
-                </Col>
-              </>
+              <Col lg={2} className="mr-1" key={index}>
+                <div
+                  className={classNames(
+                    o?.checked === false ? "btn-report" : "btn-report-active"
+                  )}
+                  onClick={() => handleChooseTime(o)}
+                >
+                  {o?.name}
+                </div>
+              </Col>
             ))}
 
           <Col lg={4} className="ml-1">

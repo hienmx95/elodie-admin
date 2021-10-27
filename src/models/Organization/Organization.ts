@@ -15,7 +15,7 @@ export class Organization extends Model
 
     public level?: number;
 
-    public statusId?: number;
+    public statusId?: number =1;
 
     public phone?: string;
 
