@@ -68,6 +68,12 @@ export class AppUserRepository extends Repository {
       .pipe(map((response: AxiosResponse<AppUser>) => response.data));
   };
 
+  public changePassword = (obj: any): Observable<any> => {
+    return this.httpObservable
+      .post<any>(kebabCase(nameof(this.changePassword)), obj)
+      .pipe(map((response: AxiosResponse<any>) => response.data));
+  };
+
   public delete = (appUser: AppUser): Observable<AppUser> => {
     return this.httpObservable
       .post<AppUser>(kebabCase(nameof(this.delete)), appUser)
