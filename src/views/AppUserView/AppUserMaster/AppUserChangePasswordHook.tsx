@@ -3,15 +3,15 @@ import { TFunction } from "i18next";
 import React from "react";
 import { appUserRepository } from "repositories/app-user-repository";
 import appMessageService from "services/app-message-service";
-import { changePassword } from "./AppUserChangePassword";
+import { ChangePassword } from "./AppUserChangePassword";
 
 export function AppUserChangePasswordHook(
   id?: number,
   translate?: TFunction,
   handleClosePanel?: () => void
 ) {
-  const [model, setModel] = React.useState<changePassword>(
-    new changePassword()
+  const [model, setModel] = React.useState<ChangePassword>(
+    new ChangePassword()
   );
 
   const {
@@ -25,6 +25,7 @@ export function AppUserChangePasswordHook(
     return (value) => {
       model.newPassword = value;
       model.reNewpassword = null;
+      setIsCheck(false);
       setModel({ ...model });
     };
   }, [setModel, model]);
@@ -44,12 +45,17 @@ export function AppUserChangePasswordHook(
     };
   }, [setModel, translate, model]);
 
+  const closePanel = React.useCallback(() => {
+    handleClosePanel();
+    setModel(new ChangePassword());
+  }, [handleClosePanel, setModel]);
+
   const handleSave = React.useCallback(() => {
     appUserRepository
       .changePassword({ id: id, newPassword: model.newPassword })
       .subscribe(
         () => {
-          handleClosePanel();
+          closePanel();
           notifyUpdateItemSuccess(); // global message service go here
         },
         (error: AxiosError<any>) => {
@@ -64,7 +70,7 @@ export function AppUserChangePasswordHook(
     notifyUpdateItemError,
     notifyUpdateItemSuccess,
     id,
-    handleClosePanel,
+    closePanel,
   ]);
 
   return {
@@ -73,5 +79,6 @@ export function AppUserChangePasswordHook(
     handleChangePassWordRe,
     isCheck,
     handleSave,
+    closePanel,
   };
 }

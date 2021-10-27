@@ -22,7 +22,7 @@ interface CustomerPreviewProps<T extends Model> {
   translate?: TFunction;
 }
 
-export class changePassword extends Model {
+export class ChangePassword extends Model {
   public newPassword?: string;
   public reNewpassword?: string;
 }
@@ -42,6 +42,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
     model,
     isCheck,
     handleSave,
+    closePanel
   } = AppUserChangePasswordHook(id, translate, handleClosePanel);
 
   return (
@@ -49,7 +50,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
       <Modal
         title={null}
         visible={isOpenPreview}
-        handleCancel={handleClosePanel}
+        handleCancel={closePanel}
         width={1200}
         visibleFooter={false}
       >
@@ -78,7 +79,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
                       <FormItem
                         label={translate("appUsers.writePassword")}
                         validateStatus={formService.getValidationStatus<
-                          changePassword
+                          ChangePassword
                         >(model.errors, nameof(model.newPassword))}
                         message={model.errors?.newPassword}
                         isRequired={true}
@@ -99,7 +100,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
                       <FormItem
                         label={translate("appUsers.reWritePassword")}
                         validateStatus={formService.getValidationStatus<
-                          changePassword
+                          ChangePassword
                         >(model.errors, nameof(model.reNewpassword))}
                         message={model.errors?.reNewpassword}
                         isRequired={true}
@@ -130,7 +131,7 @@ function AppUserChangePassword(props: CustomerPreviewProps<Customer>) {
 
                 <button
                   className="btn btn-sm component__btn-cancel mr-2"
-                  onClick={handleClosePanel}
+                  onClick={closePanel}
                 >
                   <span>
                     <i className="tio-clear_circle_outlined"></i> Đóng
