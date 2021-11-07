@@ -30,6 +30,7 @@ import { useCustomerSalesOrderDetailHook } from "./CustomerSalesOrderDetailHook/
 import { useCustomerSalesOrderFooter } from "./CustomerSalesOrderDetailHook/CustomerSalesOrderFooterHook";
 import { useCustomerSalesOrderPromotionTable } from "./CustomerSalesOrderPromotionTable";
 import { useCustomerSalesOrderPaymentHistoryTable } from "./PaymentStausHistoryTable";
+import SwitchStatus from "components/Utility/SwitchStatus/SwitchStatus";
 
 function CustomerSalesOrderDetail() {
   const [translate] = useTranslation();
@@ -68,8 +69,8 @@ function CustomerSalesOrderDetail() {
     handleChangeDeliveryProvince,
     deliveryProvinceFilter,
     deliveryDistrictFilter,
-    // editedPriceStatus,
-    // handleChangeChangeEditPrice,
+    editedPriceStatus,
+    handleChangeChangeEditPrice,
     handleChangeGeneralDiscountPercentage,
     setCalculateTotal,
     changeEditPrice,
@@ -536,7 +537,7 @@ function CustomerSalesOrderDetail() {
                         />
                       </FormItem>
                     </Col>
-                    {/* <Col lg={7} className="labelDetail">
+                    <Col lg={7} className="labelDetail">
                       <FormItem>
                         <SwitchStatus
                           checked={model.editedPriceStatusId === 1}
@@ -547,7 +548,7 @@ function CustomerSalesOrderDetail() {
                           {translate("customerSalesOrders.editedPriceStatus")}
                         </span>
                       </FormItem>
-                    </Col> */}
+                    </Col>
                   </Row>
                 </Card>
               </Col>
