@@ -1,4 +1,4 @@
-FROM docker-registry.default.svc:5000/elodie/node:12 as node-dev
+FROM node:12 as node-dev
 
 WORKDIR /src
 
