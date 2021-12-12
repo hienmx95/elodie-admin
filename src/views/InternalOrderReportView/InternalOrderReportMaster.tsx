@@ -197,6 +197,13 @@ export default function InternalOrderReportMaster() {
     internalOrderReportRepository.processingOrderCounter,
     setLoading
   );
+  const {
+    countOrder: instagramGad8Counter,
+  } = useGetData(
+    master.filter,
+    internalOrderReportRepository.instagramGad8Counter,
+    setLoading
+  );
 
   // const columns: ColumnProps<InternalOrder>[] = React.useMemo(
   //   () => [
@@ -438,6 +445,18 @@ export default function InternalOrderReportMaster() {
                 <div className="box__count">
                   <div className="count-number mt-3">
                     {formatNumber(processingOrderCounter)}
+                  </div>
+                </div>
+              </Col>
+            </div>
+          </div>
+          <div className="box__container-internal-order-report pl-3 pt-3">
+            <div className="title">Lượt truy cập Instagram GAD8</div>
+            <div className="d-flex">
+              <Col lg={18}>
+                <div className="box__count">
+                  <div className="count-number mt-3">
+                    {formatNumber(instagramGad8Counter)}
                   </div>
                 </div>
               </Col>

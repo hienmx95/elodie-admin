@@ -112,6 +112,11 @@ export class InternalOrderReportRepository extends Repository {
         .post<number>(kebabCase(nameof(this.processingOrderCounter)), filter)
         .pipe(map((response: AxiosResponse<number>) => response.data));
   };
+  public instagramGad8Counter = (filter?: DashboardOrderAndTicketFilter): Observable<number> => {
+    return this.httpObservable
+        .post<number>(kebabCase(nameof(this.instagramGad8Counter)), filter)
+        .pipe(map((response: AxiosResponse<number>) => response.data));
+  };
   
 }
 
